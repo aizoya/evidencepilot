@@ -159,6 +159,31 @@ def sources_from(rows, sources):
         hashes.add(digest)
 
 
+def linked_site_query(question, sources):
+    """Unverified navigation hint for the existing final search, never a fetch.
+
+    Accept only explicitly labelled main/official website Markdown links in
+    extracted text. Discard paths, queries and fragments; a link grants neither
+    authority nor permission. Keep the research question and contrary intent.
+    """
+    for source in sources:
+        if source.get('content_type') != 'extracted_page':
+            continue
+        for match in re.finditer(r'\[([^\]\n]{1,120})\]\((https://[^\s)]+)\)', source['content']):
+            if not re.search(r'\b(?:main|official)\s+(?:website|site)\b', match[1], re.IGNORECASE):
+                continue
+            url = safe_url(match[2])
+            if not url:
+                continue
+            host = urlsplit(url).hostname
+            if not re.fullmatch(r'[a-z0-9](?:[a-z0-9.-]{0,118}[a-z0-9])?', host):
+                continue
+            prefix = 'site:' + host + ' '
+            suffix = ' official requirements limitations conflicting evidence'
+            return prefix + question[:300-len(prefix)-len(suffix)] + suffix, host
+    return None
+
+
 def request_links(records, question):
     """Validate location only, never intent, completeness or approval."""
     if not isinstance(records, list):
@@ -432,16 +457,29 @@ def research(question, provider, budget):
         queries = list(dict.fromkeys(q.strip()[:300] for q in queries if isinstance(q, str) and len(q.strip()) >= 5))[:2]
         if not queries:
             raise ResearchError('Planner did not produce usable searches.')
-        # A bounded follow-up explicitly looks for limitations and contrary evidence.
+        # Reuse the final search for a publisher's navigation hint when present.
+        # This is discovery only, not proof that the linked publisher governs.
         queries.append(question[:240] + ' contrary evidence limitations conflicting findings')
-        for query in queries:
+        linked_host = None
+        for index, query in enumerate(queries):
+            if index == len(queries)-1:
+                hint = linked_site_query(question, report['sources'])
+                if hint:
+                    query, linked_host = hint
             try:
                 rows = invoke('search', provider.search, query)
                 sources_from(rows, report['sources'])
-                report['trace'].append({'step': 'search', 'query': query, 'results': len(rows)})
+                entry = {'step': 'search', 'query': query, 'results': len(rows)}
+                if linked_host:
+                    entry['strategy'] = 'unverified_linked_site_hint'
+                report['trace'].append(entry)
             except ResearchError as exc:
                 report['warnings'].append(str(exc))
                 report['trace'].append({'step': 'search', 'query': query, 'status': 'failed'})
+        if linked_host and not any(urlsplit(s['url']).hostname == linked_host
+                                   and s['content_type'] == 'extracted_page' for s in report['sources']):
+            report['warnings'].append('The linked website was targeted but no usable extracted page '
+                                      'from its domain was retrieved. Governing-source coverage remains unverified.')
         if not report['sources']:
             report['warnings'].append('No usable source material was retrieved. No factual answer is available.')
             return report

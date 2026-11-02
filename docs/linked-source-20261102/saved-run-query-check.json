@@ -1,0 +1,19 @@
+{
+  "classification": "offline query-selection inspection; NOT live retrieval",
+  "original_run_id": "198d00d0-87fb-4d8c-8f33-3c7a9d1f27a1",
+  "original_artifact_sha256": "b178ce3f1c432d3c49d411d3ff87aaeef7989d9b8dc2ab479ddb9b90fcb683e3",
+  "previous_final_search": "What are the current eligibility, required technologies, and submission requirements for the ODSC \u00d7 Nebius research-agent hackathon in 2026? Identify anything the official sources do not establish. contrary evidence limitations conflicting findings",
+  "proposed_final_search": "site:hackathon.odsc.ai What are the current eligibility, required technologies, and submission requirements for the ODSC \u00d7 Nebius research-agent hackathon in 2026? Identify anything the official sources do not establish. official requirements limitations conflicting evidence",
+  "strategy": "unverified_linked_site_hint",
+  "new_external_calls": 0,
+  "source_count_used": 5,
+  "limits_unchanged": {
+    "max_searches": 3,
+    "max_model_calls": 3
+  },
+  "not_established": [
+    "Whether Tavily returns the governing page",
+    "Whether linked site is authoritative or accessible",
+    "Live accuracy, latency and cost after change"
+  ]
+}
