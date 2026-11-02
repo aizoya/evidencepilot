@@ -337,6 +337,29 @@ def passage_context(source, quote):
             'context_basis': 'retained_source_text; extracted text may be truncated or incomplete'}
 
 
+def matched_passage(source, quote):
+    """Locate exact text, or whitespace-only equivalent; store original text.
+
+    Words, punctuation and Markdown are never removed or rewritten. Whitespace
+    equivalence is attachment only, not entailment. Keep ambiguous occurrences
+    visible to the existing fail-closed review gate.
+    """
+    if len(quote.strip()) < 15:
+        return None
+    if quote in source['content']:
+        passage = passage_context(source, quote)
+        passage['quote_match'] = 'exact'
+        return passage
+    pattern = r'\s+'.join(re.escape(token) for token in quote.split())
+    matches = list(re.finditer('(?=(' + pattern + '))', source['content'])) if pattern else []
+    if not matches or len(matches[0].group(1)) > 600:
+        return None
+    passage = passage_context(source, matches[0].group(1))
+    passage['quote_match'] = 'whitespace_only'
+    passage['match_count'] = max(passage['match_count'], len(matches))
+    return passage
+
+
 def validate_claims(draft, sources, requirements=None):
     lookup = {s['id']: s for s in sources}
     claims = []
@@ -357,8 +380,9 @@ def validate_claims(draft, sources, requirements=None):
                 continue
             source = lookup.get(e.get('source_id')) if isinstance(e.get('source_id'), str) else None
             quote = text(e.get('quote'), 600)
-            if source and len(quote.strip()) >= 15 and quote in source['content']:
-                evidence.append(passage_context(source, quote))
+            passage = matched_passage(source, quote) if source else None
+            if passage:
+                evidence.append(passage)
             elif not source:
                 reject('unknown_source')
             elif not isinstance(e.get('quote'), str):
