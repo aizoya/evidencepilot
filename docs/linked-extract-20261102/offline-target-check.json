@@ -1,0 +1,10 @@
+{
+  "classification": "offline extraction target selection only; page access NOT tested",
+  "original_run_id": "12c33e89-48c1-4cf4-880d-405e46129d76",
+  "proposed_extraction_url": "https://hackathon.odsc.ai/event?utm_source=luma",
+  "proposed_replacement": "replace final search with one basic extract, no fallback retry",
+  "max_tavily_requests": 3,
+  "max_model_calls": 3,
+  "reserved_tavily_credits": 3,
+  "new_provider_calls": 0
+}

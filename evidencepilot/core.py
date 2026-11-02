@@ -117,6 +117,27 @@ class Providers:
             raise ResearchError('Search returned invalid structured output.')
         return rows[:4]
 
+    def extract(self, url):
+        target = safe_url(url)
+        if not target:
+            raise ResearchError('Unsafe extraction target rejected. No request was made.')
+        usage = {'provider': 'tavily', 'purpose': 'extract', 'credits': None, 'reserved_credits': 1}
+        self.usage.append(usage)
+        result = post_json('https://api.tavily.com/extract', self.tavily, {
+            'urls': [target], 'extract_depth': 'basic', 'format': 'markdown',
+            'include_images': False, 'include_favicon': False,
+            'include_usage': True, 'timeout': 10})
+        if isinstance(result.get('usage'), dict):
+            usage['credits'] = result['usage'].get('credits')
+        rows, failures = result.get('results'), result.get('failed_results', [])
+        if (not isinstance(rows, list) or len(rows) != 1
+                or not isinstance(failures, list) or failures
+                or not isinstance(rows[0], dict)
+                or safe_url(rows[0].get('url')) != target
+                or not text(rows[0].get('raw_content'), 6000).strip()):
+            raise ResearchError('Linked-page extraction failed or returned unusable content. No retry was made.')
+        return rows
+
 
 class Budget:
     """Durable atomic reservation, including failed/uncertain requests. No refund/retry."""
@@ -159,12 +180,12 @@ def sources_from(rows, sources):
         hashes.add(digest)
 
 
-def linked_site_query(question, sources):
-    """Unverified navigation hint for the existing final search, never a fetch.
+def linked_site_url(sources):
+    """Unverified navigation hint, never authority or permission.
 
     Accept only explicitly labelled main/official website Markdown links in
-    extracted text. Discard paths, queries and fragments; a link grants neither
-    authority nor permission. Keep the research question and contrary intent.
+    extracted text. Retain URL identity for provider extraction; only the
+    hostname is used by the search-only compatibility path.
     """
     for source in sources:
         if source.get('content_type') != 'extracted_page':
@@ -178,10 +199,18 @@ def linked_site_query(question, sources):
             host = urlsplit(url).hostname
             if not re.fullmatch(r'[a-z0-9](?:[a-z0-9.-]{0,118}[a-z0-9])?', host):
                 continue
-            prefix = 'site:' + host + ' '
-            suffix = ' official requirements limitations conflicting evidence'
-            return prefix + question[:300-len(prefix)-len(suffix)] + suffix, host
+            return url
     return None
+
+
+def linked_site_query(question, sources):
+    url = linked_site_url(sources)
+    if not url:
+        return None
+    host = urlsplit(url).hostname
+    prefix = 'site:' + host + ' '
+    suffix = ' official requirements limitations conflicting evidence'
+    return prefix + question[:300-len(prefix)-len(suffix)] + suffix, host
 
 
 def request_links(records, question):
@@ -419,7 +448,8 @@ def research(question, provider, budget):
     report = {'schema_version': 1, 'run_id': str(uuid.uuid4()), 'created_at': now(),
               'question': question.strip(), 'model': provider.model, 'status': 'insufficient_evidence',
               'requirements': [], 'requirement_outcomes': [], 'sources': [], 'claims': [], 'contradictions': [], 'warnings': [], 'trace': [],
-              'limits': {'search_calls': 3, 'model_calls': 3, 'max_output_tokens_per_call': 2200},
+              'limits': {'tavily_calls': 3, 'search_calls': 3, 'extract_calls': 1,
+                         'model_calls': 3, 'max_output_tokens_per_call': 2200},
               'verification': 'Exact passages checked by code; entailment and contradictions assessed by an AI reviewer. Human verification remains necessary.'}
     def invoke(action, fn, *args):
         event = {'requirement_id': 'R1', 'requirement': 'Answer the submitted research question with evidence',
@@ -457,25 +487,39 @@ def research(question, provider, budget):
         queries = list(dict.fromkeys(q.strip()[:300] for q in queries if isinstance(q, str) and len(q.strip()) >= 5))[:2]
         if not queries:
             raise ResearchError('Planner did not produce usable searches.')
-        # Reuse the final search for a publisher's navigation hint when present.
+        # Reuse the final Tavily request for a publisher's navigation hint.
+        # Prefer one basic extract; search-only providers retain the old path.
         # This is discovery only, not proof that the linked publisher governs.
         queries.append(question[:240] + ' contrary evidence limitations conflicting findings')
         linked_host = None
         for index, query in enumerate(queries):
+            extract_url = None
             if index == len(queries)-1:
-                hint = linked_site_query(question, report['sources'])
-                if hint:
-                    query, linked_host = hint
+                linked_url = linked_site_url(report['sources'])
+                if linked_url and callable(getattr(provider, 'extract', None)):
+                    extract_url = linked_url
+                    linked_host = urlsplit(linked_url).hostname
+                else:
+                    hint = linked_site_query(question, report['sources'])
+                    if hint:
+                        query, linked_host = hint
+            action = 'extract' if extract_url else 'search'
             try:
-                rows = invoke('search', provider.search, query)
+                rows = (invoke('extract', provider.extract, extract_url) if extract_url
+                        else invoke('search', provider.search, query))
                 sources_from(rows, report['sources'])
-                entry = {'step': 'search', 'query': query, 'results': len(rows)}
+                entry = {'step': action, 'results': len(rows)}
+                if not extract_url:
+                    entry['query'] = query
                 if linked_host:
-                    entry['strategy'] = 'unverified_linked_site_hint'
+                    entry['strategy'] = 'unverified_linked_page_extract' if extract_url else 'unverified_linked_site_hint'
                 report['trace'].append(entry)
             except ResearchError as exc:
                 report['warnings'].append(str(exc))
-                report['trace'].append({'step': 'search', 'query': query, 'status': 'failed'})
+                entry = {'step': action, 'status': 'failed'}
+                if not extract_url:
+                    entry['query'] = query
+                report['trace'].append(entry)
         if linked_host and not any(urlsplit(s['url']).hostname == linked_host
                                    and s['content_type'] == 'extracted_page' for s in report['sources']):
             report['warnings'].append('The linked website was targeted but no usable extracted page '

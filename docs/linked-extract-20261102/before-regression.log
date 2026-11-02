@@ -1,0 +1,94 @@
+test_adapter_uses_basic_single_url_and_records_returned_usage (test_linked_extract.LinkedExtractTests.test_adapter_uses_basic_single_url_and_records_returned_usage) ... ERROR
+test_extract_replaces_final_search_and_preserves_url_identity (test_linked_extract.LinkedExtractTests.test_extract_replaces_final_search_and_preserves_url_identity) ... FAIL
+test_failed_extract_is_visible_without_retry_or_fourth_call (test_linked_extract.LinkedExtractTests.test_failed_extract_is_visible_without_retry_or_fourth_call) ... FAIL
+test_http_200_failure_and_empty_content_are_not_success (test_linked_extract.LinkedExtractTests.test_http_200_failure_and_empty_content_are_not_success) ... 
+  test_http_200_failure_and_empty_content_are_not_success (test_linked_extract.LinkedExtractTests.test_http_200_failure_and_empty_content_are_not_success) (payload={'results': [], 'failed_results': [{'url': 'https://rules.example.com/event?edition=2026', 'error': 'private-canary'}]}) ... ERROR
+  test_http_200_failure_and_empty_content_are_not_success (test_linked_extract.LinkedExtractTests.test_http_200_failure_and_empty_content_are_not_success) (payload={'results': [{'url': 'https://rules.example.com/event?edition=2026', 'raw_content': '  '}], 'failed_results': []}) ... ERROR
+  test_http_200_failure_and_empty_content_are_not_success (test_linked_extract.LinkedExtractTests.test_http_200_failure_and_empty_content_are_not_success) (payload={'results': 'not-a-list', 'failed_results': []}) ... ERROR
+test_transport_failure_reserves_attempt_and_has_no_retry (test_linked_extract.LinkedExtractTests.test_transport_failure_reserves_attempt_and_has_no_retry) ... ERROR
+test_unrequested_response_url_is_rejected (test_linked_extract.LinkedExtractTests.test_unrequested_response_url_is_rejected) ... ERROR
+test_unsafe_target_makes_no_provider_request (test_linked_extract.LinkedExtractTests.test_unsafe_target_makes_no_provider_request) ... ERROR
+
+======================================================================
+ERROR: test_adapter_uses_basic_single_url_and_records_returned_usage (test_linked_extract.LinkedExtractTests.test_adapter_uses_basic_single_url_and_records_returned_usage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_linked_extract.py", line 70, in test_adapter_uses_basic_single_url_and_records_returned_usage
+    rows = provider.extract(URL)
+           ^^^^^^^^^^^^^^^^
+AttributeError: 'Providers' object has no attribute 'extract'
+
+======================================================================
+ERROR: test_http_200_failure_and_empty_content_are_not_success (test_linked_extract.LinkedExtractTests.test_http_200_failure_and_empty_content_are_not_success) (payload={'results': [], 'failed_results': [{'url': 'https://rules.example.com/event?edition=2026', 'error': 'private-canary'}]})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_linked_extract.py", line 88, in test_http_200_failure_and_empty_content_are_not_success
+    Providers().extract(URL)
+    ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Providers' object has no attribute 'extract'
+
+======================================================================
+ERROR: test_http_200_failure_and_empty_content_are_not_success (test_linked_extract.LinkedExtractTests.test_http_200_failure_and_empty_content_are_not_success) (payload={'results': [{'url': 'https://rules.example.com/event?edition=2026', 'raw_content': '  '}], 'failed_results': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_linked_extract.py", line 88, in test_http_200_failure_and_empty_content_are_not_success
+    Providers().extract(URL)
+    ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Providers' object has no attribute 'extract'
+
+======================================================================
+ERROR: test_http_200_failure_and_empty_content_are_not_success (test_linked_extract.LinkedExtractTests.test_http_200_failure_and_empty_content_are_not_success) (payload={'results': 'not-a-list', 'failed_results': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_linked_extract.py", line 88, in test_http_200_failure_and_empty_content_are_not_success
+    Providers().extract(URL)
+    ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Providers' object has no attribute 'extract'
+
+======================================================================
+ERROR: test_transport_failure_reserves_attempt_and_has_no_retry (test_linked_extract.LinkedExtractTests.test_transport_failure_reserves_attempt_and_has_no_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_linked_extract.py", line 111, in test_transport_failure_reserves_attempt_and_has_no_retry
+    provider.extract(URL)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Providers' object has no attribute 'extract'
+
+======================================================================
+ERROR: test_unrequested_response_url_is_rejected (test_linked_extract.LinkedExtractTests.test_unrequested_response_url_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_linked_extract.py", line 97, in test_unrequested_response_url_is_rejected
+    Providers().extract(URL)
+    ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Providers' object has no attribute 'extract'
+
+======================================================================
+ERROR: test_unsafe_target_makes_no_provider_request (test_linked_extract.LinkedExtractTests.test_unsafe_target_makes_no_provider_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_linked_extract.py", line 104, in test_unsafe_target_makes_no_provider_request
+    Providers().extract(url)
+    ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Providers' object has no attribute 'extract'
+
+======================================================================
+FAIL: test_extract_replaces_final_search_and_preserves_url_identity (test_linked_extract.LinkedExtractTests.test_extract_replaces_final_search_and_preserves_url_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_linked_extract.py", line 45, in test_extract_replaces_final_search_and_preserves_url_identity
+    self.assertEqual(provider.calls.count('search'), 2)
+AssertionError: 3 != 2
+
+======================================================================
+FAIL: test_failed_extract_is_visible_without_retry_or_fourth_call (test_linked_extract.LinkedExtractTests.test_failed_extract_is_visible_without_retry_or_fourth_call)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_linked_extract.py", line 57, in test_failed_extract_is_visible_without_retry_or_fourth_call
+    self.assertEqual(provider.calls.count('search'), 2)
+AssertionError: 3 != 2
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.015s
+
+FAILED (failures=2, errors=7)

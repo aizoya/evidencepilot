@@ -1,0 +1,60 @@
+{
+  "classification": "audit of user-supplied second live export, not a new run",
+  "run_id": "12c33e89-48c1-4cf4-880d-405e46129d76",
+  "original_file_sha256": "224a24755638869f66ea8e24f11d88141df4be1d35091324d5846dd7e15a8b8f",
+  "status": "partial",
+  "elapsed_seconds": 23.64,
+  "usage": [
+    {
+      "provider": "nebius",
+      "purpose": "plan",
+      "prompt_tokens": 191,
+      "completion_tokens": 185
+    },
+    {
+      "provider": "tavily",
+      "credits": 1,
+      "reserved_credits": 1
+    },
+    {
+      "provider": "tavily",
+      "credits": 1,
+      "reserved_credits": 1
+    },
+    {
+      "provider": "tavily",
+      "credits": 1,
+      "reserved_credits": 1
+    },
+    {
+      "provider": "nebius",
+      "purpose": "synthesis",
+      "prompt_tokens": 8526,
+      "completion_tokens": 804
+    },
+    {
+      "provider": "nebius",
+      "purpose": "evidence_review",
+      "prompt_tokens": 14607,
+      "completion_tokens": 502
+    }
+  ],
+  "cost": {
+    "usd": null,
+    "basis": "Not priced. Provider credits/tokens are usage, not an invoice.",
+    "max_reserved_tavily_credits": 3,
+    "max_nebius_output_tokens": 6600
+  },
+  "hash_checks_passed": 7,
+  "quote_offset_checks_passed": 9,
+  "targeted_search_results": 0,
+  "warnings": [
+    "The linked website was targeted but no usable extracted page from its domain was retrieved. Governing-source coverage remains unverified."
+  ],
+  "remaining_findings": [
+    "R3 mapped findings do not establish complete submission deliverable coverage",
+    "C1 reviewer reason overstates open-to-everyone wording as unrestricted eligibility",
+    "No governing main-site source was retained"
+  ],
+  "new_provider_calls": 0
+}
