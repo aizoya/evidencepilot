@@ -1,0 +1,3 @@
+First patch command ran in recovered/source/evidencepilot but attempted to read recovered/source/evidencepilot/evidencepilot/core.py relative to that directory.
+Observed: FileNotFoundError before edits; test file destination also absent. The shell continued and ran the unchanged 35-test suite successfully. That result did NOT validate the intended patch.
+Recovery: corrected all edit/test paths to current project-relative paths, wrote patch and six tests, reran full suite: 41 passed. No provider calls occurred.

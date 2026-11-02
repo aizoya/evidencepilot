@@ -1,0 +1,11 @@
+{
+  "tests/test_requirements.py": "8954826e70a057c8d2168340c0aefeab4c1aab46ff708835e71e129b4370d69b",
+  "tests/test_core.py": "71fb8d979a4c3641d3c3caab81567575057b7995fa68b9f06cbe6fbcb6672954",
+  "tests/test_reviewer_scoring.py": "032977d8038f9781acf071bcc7055f7232e0110ebbece163cf9244ff125fe3bb",
+  "tests/test_passage_context.py": "d4aeea61bd4fa3696df99d86e03a4b5a175c0ee96a7dcade69b5bbe9af3ad9b9",
+  "tests/test_execution_gaps.py": "0ab107c42600e769700c6fcb61591b3826475fa529d97ecd276549ac3b79c3b3",
+  "evals/measurement-status.json": "342fd96849c860aef77f3dc65dae54e5ea4be642c4e3b7c0a181dc8bcf926c39",
+  "evals/development-calibration-v1.json": "a67858e86abaa633cc4f863dc4dcfb481d22f660c14d2caa11ec88036f7dad98",
+  "scripts/score_reviewer.py": "e61215cbaa6d0ed7ae352c371441ee51c4585b7d403800e631351ed081174d5f",
+  "evidencepilot/web.py": "c45d5a9871fd7ba71ddf7d8118f9bf59ccc3fe2287468476446d921f5ddc1b3e"
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "case": "search_interrupted",
+    "repetition": 1,
+    "before": "uncaught_exception",
+    "after": "structured_report",
+    "after_report_status": "insufficient_evidence",
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null
+  },
+  {
+    "case": "search_interrupted",
+    "repetition": 2,
+    "before": "uncaught_exception",
+    "after": "structured_report",
+    "after_report_status": "insufficient_evidence",
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null
+  },
+  {
+    "case": "search_interrupted",
+    "repetition": 3,
+    "before": "uncaught_exception",
+    "after": "structured_report",
+    "after_report_status": "insufficient_evidence",
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null
+  },
+  {
+    "case": "review_interrupted",
+    "repetition": 1,
+    "before": "uncaught_exception",
+    "after": "structured_report",
+    "after_report_status": "failed",
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null
+  },
+  {
+    "case": "review_interrupted",
+    "repetition": 2,
+    "before": "uncaught_exception",
+    "after": "structured_report",
+    "after_report_status": "failed",
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null
+  },
+  {
+    "case": "review_interrupted",
+    "repetition": 3,
+    "before": "uncaught_exception",
+    "after": "structured_report",
+    "after_report_status": "failed",
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null
+  },
+  {
+    "case": "normal",
+    "repetition": 1,
+    "before": "structured_report",
+    "after": "structured_report",
+    "after_report_status": "evidence_found",
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null
+  },
+  {
+    "case": "normal",
+    "repetition": 2,
+    "before": "structured_report",
+    "after": "structured_report",
+    "after_report_status": "evidence_found",
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null
+  },
+  {
+    "case": "normal",
+    "repetition": 3,
+    "before": "structured_report",
+    "after": "structured_report",
+    "after_report_status": "evidence_found",
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null
+  }
+]

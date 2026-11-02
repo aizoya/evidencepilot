@@ -1,0 +1,117 @@
+--- baseline/core.py
++++ mapped/core.py
+@@ -159,8 +159,43 @@
+         hashes.add(digest)
+ 
+ 
+-def requirements_from(plan):
+-    """Planner-proposed requirements, never a verified decomposition of user intent."""
++def request_links(records, question):
++    """Validate location only, never intent, completeness or approval."""
++    if not isinstance(records, list):
++        return [], 'missing' if records is None else 'invalid'
++    if not records:
++        return [], 'missing'
++    if len(records) > 3:
++        return [], 'invalid'
++    valid, states = [], []
++    for record in records:
++        if not isinstance(record, dict):
++            states.append('invalid'); continue
++        quote = record.get('quote')
++        if not isinstance(quote, str) or not quote:
++            states.append('missing' if quote is None or quote == '' else 'invalid'); continue
++        if not isinstance(question, str):
++            states.append('missing'); continue
++        start, end = record.get('start'), record.get('end')
++        if start is None and end is None:
++            start = question.find(quote)
++            if start < 0:
++                states.append('invalid'); continue
++            if question.find(quote, start + 1) >= 0:
++                states.append('ambiguous'); continue
++            end = start + len(quote)
++        if type(start) is not int or type(end) is not int or not 0 <= start < end <= len(question) or question[start:end] != quote:
++            states.append('invalid'); continue
++        if start == 0 and end == len(question):
++            states.append('invalid'); continue
++        valid.append({'start':start,'end':end,'quote':quote})
++        states.append('matched')
++    state = next((state for state in ['invalid','ambiguous','missing'] if state in states), 'matched')
++    return valid, state
++
++
++def requirements_from(plan, question=None):
++    """Planner proposals with checkable request links, not verified intent."""
+     rows = plan.get('requirements', [])
+     if not isinstance(rows, list):
+         rows = []
+@@ -168,10 +203,18 @@
+     for item in rows[:5]:
+         value = text(item.get('text'), 300) if isinstance(item, dict) else text(item, 300)
+         if value.strip():
++            raw_spans = item.get('user_spans') if isinstance(item, dict) else None
++            spans, state = request_links(raw_spans, question)
++            span_count = len(raw_spans) if isinstance(raw_spans, list) else 0
+             requirements.append({'id': 'R' + str(len(requirements) + 1), 'text': value.strip(),
+-                                 'origin': 'planner_proposal'})
++                                 'origin': 'planner_proposal', 'user_spans': spans,
++                                 'text_link_status': state, 'interpretation_status': 'not_reviewed',
++                                 'declared_span_count': span_count, 'unresolved_span_count': span_count-len(spans),
++                                 'limitation': 'More than three request spans supplied; proposal linkage rejected without truncation.' if span_count > 3 else (None if state == 'matched' else 'Request linkage is unresolved; this is an unverified interpretation.')})
+     return requirements or [{'id': 'R1', 'text': 'Answer the submitted research question with evidence',
+-                              'origin': 'whole_question_fallback'}]
++                              'origin': 'whole_question_fallback', 'user_spans': [],
++                              'text_link_status':'missing', 'interpretation_status':'not_reviewed',
++                              'limitation':'No usable decomposition; whole-question placeholder only.'}]
+ 
+ 
+ def requirement_outcomes(requirements, claims):
+@@ -293,7 +336,7 @@
+ 
+ 
+ PLAN = ('Plan two complementary research searches, favor primary authoritative publishers and current '
+-        'evidence. Output {"queries":["query","query"],"requirements":[{"text":"explicit question requirement"}]}. Identify up to five requested requirements without adding goals. Each query <=300 characters. No answers.')
++        'evidence. Output {"queries":["query","query"],"requirements":[{"text":"explicit question requirement","user_spans":[{"quote":"exact request clause"}]}]}. Identify up to five requested requirements without adding goals. Each query <=300 characters. No answers.')
+ DRAFT = ('Extract up to eight important factual claims that answer the question. Distinguish dates and '
+          'scope precisely. Each needs exact verbatim passages from supplied source content. Do not treat '
+          'search scores as credibility. Output {"claims":[{"text":"claim","requirement_ids":["R1"],"evidence":'
+@@ -312,6 +355,7 @@
+ def research(question, provider, budget):
+     if not isinstance(question, str) or not 10 <= len(question.strip()) <= 1200:
+         raise ResearchError('Enter a research question between 10 and 1,200 characters.')
++    question = question.strip()
+     if not provider.configured():
+         raise ResearchError('Research is unavailable: server-side provider credentials and model must be configured.')
+     budget.reserve()
+@@ -343,7 +387,14 @@
+     report['execution_events'] = []
+     try:
+         plan = invoke('plan', provider.model_json, 'plan', PLAN, {'question': question, 'as_of': now()[:10]})
+-        report['requirements'] = requirements_from(plan)
++        report['requirements'] = requirements_from(plan, question)
++        proposals = plan.get('requirements')
++        report['requirement_limit'] = 5
++        report['omitted_requirement_count'] = max(0, len(proposals)-5) if isinstance(proposals, list) else 0
++        report['requirement_limit_exceeded'] = report['omitted_requirement_count'] > 0
++        if report['requirement_limit_exceeded']:
++            report['warnings'].append(f"Only five requirement proposals are processed; {report['omitted_requirement_count']} additional proposals were withheld. Full request coverage is not established.")
++        report['requirement_proposals_unusable'] = not isinstance(proposals, list) or any(not (text(r.get('text'), 300) if isinstance(r, dict) else text(r, 300)).strip() for r in proposals)
+         queries = plan.get('queries', [])
+         if not isinstance(queries, list):
+             raise ResearchError('Planner returned invalid queries.')
+@@ -383,10 +434,13 @@
+         report['unmapped_claim_ids'] = [c['id'] for c in report['claims'] if not c.get('requirement_ids')]
+         if report['status'] == 'evidence_found' and (
+             report['unmapped_claim_ids'] or not report['requirement_outcomes'] or
++            report.get('requirement_limit_exceeded', False) or report.get('requirement_proposals_unusable', False) or
++            any(r.get('text_link_status') != 'matched' or r['origin'] == 'whole_question_fallback' for r in report['requirements']) or
+             any(r['state'] != 'supported_findings' for r in report['requirement_outcomes'])
+         ):
+             report['status'] = 'partial'
+-            report['warnings'].append('Supported findings do not cover every proposed requirement; inspect unknown requirements and unmapped claims.')
++            report['warnings'].append('Supported findings have unresolved request linkage or incomplete requirement coverage; inspect limits, unknown requirements and unmapped claims.')
++        report['coverage_assurance'] = 'not_verified'
+         report['coverage_note'] = 'Planner proposals and mapped findings only; full requirement coverage and satisfaction are not verified.'
+         report['execution_events'].append({'requirement_id': 'R1', 'source_ids': [s['id'] for s in report['sources']], 'evidence': [{'claim_id': c['id'], 'requirement_ids': c.get('requirement_ids', []), 'source_ids': [e['source_id'] for e in c['evidence']], 'status': c['status']} for c in report['claims']], 'proposed_action': 'render_report', 'applicable_approval': 'local report only; no external writes', 'actual_tool_result': report['status'], 'final_outcome': report['status']})
+         report['elapsed_seconds'] = round(time.monotonic() - started, 2)

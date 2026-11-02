@@ -1,0 +1,22 @@
+{
+  "execution_class": "local_synthetic_regression",
+  "baseline_tests": 22,
+  "patched_tests": 44,
+  "patched_passed": 44,
+  "human_reviewed_reference_set": "three synthetic development labels explicitly confirmed; not blinded or double-annotated",
+  "holdout": "not created; independent custody required",
+  "supported_claim_accuracy": null,
+  "requirement_coverage": null,
+  "appropriate_abstention": null,
+  "missed_serious_violations": null,
+  "false_alarms": null,
+  "failure_severity_distribution": null,
+  "recoverability_rate": null,
+  "live_latency": null,
+  "actual_billed_cost": null,
+  "cross_family_review": "not run",
+  "requirement_mapping": "implemented; semantic coverage not measured",
+  "source_context": "implemented; semantic scope accuracy not measured",
+  "reviewer_accuracy": null,
+  "reviewer_scoring": "offline scorer tested; real predictions absent"
+}

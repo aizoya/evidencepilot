@@ -1,0 +1,57 @@
+{
+  "dataset_id": "evidencepilot-dev-calibration-v1",
+  "recorded_date_pacific": "2026-10-28",
+  "split": "development_only",
+  "synthetic": true,
+  "status": "labels explicitly confirmed by Franklyn Rosario",
+  "annotation_method": "Assistant proposed labels and explanations; Franklyn explicitly agreed. Single human confirmation, not blinded or independent double annotation.",
+  "annotation_history": [
+    {
+      "user_response": "3 1 2",
+      "status": "ambiguous; assistant inferred a numeric mapping that had not been defined; not reliable independent labels"
+    },
+    {
+      "user_response": "G",
+      "status": "insufficiently specific for independent annotation; retained as conversational history"
+    },
+    {
+      "user_response": "agree with these labels\u201d",
+      "status": "explicit confirmation of supported / not_established / not_established"
+    }
+  ],
+  "cases": [
+    {
+      "id": "DEV-CAL-01",
+      "source_text": "The Basic plan includes five reports per month.",
+      "claim": "Basic includes five monthly reports.",
+      "expected_status": "supported",
+      "rationale": "The passage directly states the same plan and monthly allowance."
+    },
+    {
+      "id": "DEV-CAL-02",
+      "section_heading": "Dedicated endpoints",
+      "source_text": "Customers select a fixed deployment region.",
+      "claim": "Public serverless customers can select a fixed deployment region.",
+      "expected_status": "not_established",
+      "rationale": "The passage describes dedicated endpoints; it does not establish or disprove the public-serverless capability."
+    },
+    {
+      "id": "DEV-CAL-03",
+      "source_text": "Effective January 2024: the service costs $10 monthly.",
+      "claim": "The service currently costs $10 monthly in October 2026.",
+      "research_as_of": "2026-10-28",
+      "expected_status": "not_established",
+      "rationale": "Historical price alone neither establishes nor disproves the current price."
+    }
+  ],
+  "reviewer_predictions": null,
+  "reviewer_accuracy": null,
+  "live_provider_calls": 0,
+  "restrictions": [
+    "Not a holdout set; expected answers are visible to implementation.",
+    "Do not label these annotations independent human research or reviewer performance measurements.",
+    "Do not substitute model predictions or fixed fixtures for a real reviewer run.",
+    "No cross-family evaluation or provider usage authorized by this record."
+  ],
+  "next_step": "When credentials and usage are separately authorized, obtain reviewer predictions without labels in its prompt; score against this development set. Keep a separate unseen custodian-held holdout for final QA."
+}

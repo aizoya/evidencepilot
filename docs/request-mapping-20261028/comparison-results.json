@@ -1,0 +1,302 @@
+[
+  {
+    "case": "valid",
+    "repetition": 1,
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null,
+    "before": {
+      "status": "evidence_found",
+      "link_statuses": [
+        null
+      ],
+      "warnings": []
+    },
+    "after": {
+      "status": "evidence_found",
+      "link_statuses": [
+        "matched"
+      ],
+      "warnings": []
+    }
+  },
+  {
+    "case": "valid",
+    "repetition": 2,
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null,
+    "before": {
+      "status": "evidence_found",
+      "link_statuses": [
+        null
+      ],
+      "warnings": []
+    },
+    "after": {
+      "status": "evidence_found",
+      "link_statuses": [
+        "matched"
+      ],
+      "warnings": []
+    }
+  },
+  {
+    "case": "valid",
+    "repetition": 3,
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null,
+    "before": {
+      "status": "evidence_found",
+      "link_statuses": [
+        null
+      ],
+      "warnings": []
+    },
+    "after": {
+      "status": "evidence_found",
+      "link_statuses": [
+        "matched"
+      ],
+      "warnings": []
+    }
+  },
+  {
+    "case": "missing",
+    "repetition": 1,
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null,
+    "before": {
+      "status": "evidence_found",
+      "link_statuses": [
+        null
+      ],
+      "warnings": []
+    },
+    "after": {
+      "status": "partial",
+      "link_statuses": [
+        "missing"
+      ],
+      "warnings": [
+        "Supported findings have unresolved request linkage or incomplete requirement coverage; inspect limits, unknown requirements and unmapped claims."
+      ]
+    }
+  },
+  {
+    "case": "missing",
+    "repetition": 2,
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null,
+    "before": {
+      "status": "evidence_found",
+      "link_statuses": [
+        null
+      ],
+      "warnings": []
+    },
+    "after": {
+      "status": "partial",
+      "link_statuses": [
+        "missing"
+      ],
+      "warnings": [
+        "Supported findings have unresolved request linkage or incomplete requirement coverage; inspect limits, unknown requirements and unmapped claims."
+      ]
+    }
+  },
+  {
+    "case": "missing",
+    "repetition": 3,
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null,
+    "before": {
+      "status": "evidence_found",
+      "link_statuses": [
+        null
+      ],
+      "warnings": []
+    },
+    "after": {
+      "status": "partial",
+      "link_statuses": [
+        "missing"
+      ],
+      "warnings": [
+        "Supported findings have unresolved request linkage or incomplete requirement coverage; inspect limits, unknown requirements and unmapped claims."
+      ]
+    }
+  },
+  {
+    "case": "invalid",
+    "repetition": 1,
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null,
+    "before": {
+      "status": "evidence_found",
+      "link_statuses": [
+        null
+      ],
+      "warnings": []
+    },
+    "after": {
+      "status": "partial",
+      "link_statuses": [
+        "invalid"
+      ],
+      "warnings": [
+        "Supported findings have unresolved request linkage or incomplete requirement coverage; inspect limits, unknown requirements and unmapped claims."
+      ]
+    }
+  },
+  {
+    "case": "invalid",
+    "repetition": 2,
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null,
+    "before": {
+      "status": "evidence_found",
+      "link_statuses": [
+        null
+      ],
+      "warnings": []
+    },
+    "after": {
+      "status": "partial",
+      "link_statuses": [
+        "invalid"
+      ],
+      "warnings": [
+        "Supported findings have unresolved request linkage or incomplete requirement coverage; inspect limits, unknown requirements and unmapped claims."
+      ]
+    }
+  },
+  {
+    "case": "invalid",
+    "repetition": 3,
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null,
+    "before": {
+      "status": "evidence_found",
+      "link_statuses": [
+        null
+      ],
+      "warnings": []
+    },
+    "after": {
+      "status": "partial",
+      "link_statuses": [
+        "invalid"
+      ],
+      "warnings": [
+        "Supported findings have unresolved request linkage or incomplete requirement coverage; inspect limits, unknown requirements and unmapped claims."
+      ]
+    }
+  },
+  {
+    "case": "overflow",
+    "repetition": 1,
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null,
+    "before": {
+      "status": "partial",
+      "link_statuses": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "warnings": [
+        "Supported findings do not cover every proposed requirement; inspect unknown requirements and unmapped claims."
+      ]
+    },
+    "after": {
+      "status": "partial",
+      "link_statuses": [
+        "matched",
+        "matched",
+        "matched",
+        "matched",
+        "matched"
+      ],
+      "warnings": [
+        "Only five requirement proposals are processed; 1 additional proposals were withheld. Full request coverage is not established."
+      ]
+    }
+  },
+  {
+    "case": "overflow",
+    "repetition": 2,
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null,
+    "before": {
+      "status": "partial",
+      "link_statuses": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "warnings": [
+        "Supported findings do not cover every proposed requirement; inspect unknown requirements and unmapped claims."
+      ]
+    },
+    "after": {
+      "status": "partial",
+      "link_statuses": [
+        "matched",
+        "matched",
+        "matched",
+        "matched",
+        "matched"
+      ],
+      "warnings": [
+        "Only five requirement proposals are processed; 1 additional proposals were withheld. Full request coverage is not established."
+      ]
+    }
+  },
+  {
+    "case": "overflow",
+    "repetition": 3,
+    "execution_class": "simulation",
+    "live_latency": null,
+    "actual_billed_cost": null,
+    "before": {
+      "status": "partial",
+      "link_statuses": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "warnings": [
+        "Supported findings do not cover every proposed requirement; inspect unknown requirements and unmapped claims."
+      ]
+    },
+    "after": {
+      "status": "partial",
+      "link_statuses": [
+        "matched",
+        "matched",
+        "matched",
+        "matched",
+        "matched"
+      ],
+      "warnings": [
+        "Only five requirement proposals are processed; 1 additional proposals were withheld. Full request coverage is not established."
+      ]
+    }
+  }
+]

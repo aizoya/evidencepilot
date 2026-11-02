@@ -1,0 +1,28 @@
+{
+  "type": "local_http_smoke",
+  "live_providers": false,
+  "checks": [
+    {
+      "path": "/health",
+      "status": 200,
+      "bytes": 41
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 2727
+    },
+    {
+      "path": "/app.js",
+      "status": 200,
+      "bytes": 4144
+    },
+    {
+      "path": "/api/research",
+      "status": 401,
+      "body": {
+        "error": "A valid research access code is required."
+      }
+    }
+  ]
+}

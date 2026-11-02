@@ -1,0 +1,15 @@
+{
+  "baseline_tests_passed": 44,
+  "final_tests_passed": 48,
+  "initial_regression_failed": 1,
+  "synthetic_cases": 4,
+  "repetitions_per_case": 3,
+  "live_provider_calls": 0,
+  "live_latency": null,
+  "actual_billed_cost": null,
+  "model_accuracy": null,
+  "git_commit": null,
+  "deployment": null,
+  "submission": null,
+  "recommendation": "GO local; HOLD live/production/submission"
+}

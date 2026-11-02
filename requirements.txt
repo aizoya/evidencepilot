@@ -1,0 +1,2 @@
+# Local application and tests require Python 3.12+ standard library only.
+# Production server is specified separately, and must be scanned before deployment.

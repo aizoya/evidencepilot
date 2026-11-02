@@ -1,0 +1,32 @@
+[
+  {
+    "case": "success",
+    "execution_class": "simulation-in-process-WSGI",
+    "http_status": "200 OK",
+    "report_status": "evidence_found",
+    "real_provider_calls": 0,
+    "live_latency": null,
+    "actual_billed_cost": null,
+    "failure_events_including_final_report": 0
+  },
+  {
+    "case": "search_interrupted",
+    "execution_class": "simulation-in-process-WSGI",
+    "http_status": "200 OK",
+    "report_status": "insufficient_evidence",
+    "real_provider_calls": 0,
+    "live_latency": null,
+    "actual_billed_cost": null,
+    "failure_events_including_final_report": 3
+  },
+  {
+    "case": "review_interrupted",
+    "execution_class": "simulation-in-process-WSGI",
+    "http_status": "200 OK",
+    "report_status": "failed",
+    "real_provider_calls": 0,
+    "live_latency": null,
+    "actual_billed_cost": null,
+    "failure_events_including_final_report": 2
+  }
+]
