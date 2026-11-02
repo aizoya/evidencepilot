@@ -17,7 +17,16 @@ from http.client import HTTPException
 
 
 class ResearchError(Exception):
-    pass
+    def __init__(self, message, code='research_error'):
+        super().__init__(message)
+        self.code = code
+
+
+EXTRACT_FAILURE_CODES = frozenset({
+    'extract_request_failed', 'extract_invalid_structure', 'extract_url_failed',
+    'extract_empty_results', 'extract_unexpected_result_count', 'extract_url_mismatch',
+    'extract_empty_content',
+})
 
 
 def now():
@@ -123,19 +132,34 @@ class Providers:
             raise ResearchError('Unsafe extraction target rejected. No request was made.')
         usage = {'provider': 'tavily', 'purpose': 'extract', 'credits': None, 'reserved_credits': 1}
         self.usage.append(usage)
-        result = post_json('https://api.tavily.com/extract', self.tavily, {
-            'urls': [target], 'extract_depth': 'basic', 'format': 'markdown',
-            'include_images': False, 'include_favicon': False,
-            'include_usage': True, 'timeout': 10})
+        try:
+            result = post_json('https://api.tavily.com/extract', self.tavily, {
+                'urls': [target], 'extract_depth': 'basic', 'format': 'markdown',
+                'include_images': False, 'include_favicon': False,
+                'include_usage': True, 'timeout': 10})
+        except ResearchError:
+            raise ResearchError('Linked-page extraction request failed. No retry was made.',
+                                code='extract_request_failed') from None
         if isinstance(result.get('usage'), dict):
             usage['credits'] = result['usage'].get('credits')
         rows, failures = result.get('results'), result.get('failed_results', [])
-        if (not isinstance(rows, list) or len(rows) != 1
-                or not isinstance(failures, list) or failures
-                or not isinstance(rows[0], dict)
-                or safe_url(rows[0].get('url')) != target
-                or not text(rows[0].get('raw_content'), 6000).strip()):
-            raise ResearchError('Linked-page extraction failed or returned unusable content. No retry was made.')
+        code = None
+        if not isinstance(rows, list) or not isinstance(failures, list):
+            code = 'extract_invalid_structure'
+        elif failures:
+            code = 'extract_url_failed'
+        elif not rows:
+            code = 'extract_empty_results'
+        elif len(rows) != 1:
+            code = 'extract_unexpected_result_count'
+        elif not isinstance(rows[0], dict):
+            code = 'extract_invalid_structure'
+        elif safe_url(rows[0].get('url')) != target:
+            code = 'extract_url_mismatch'
+        elif not text(rows[0].get('raw_content'), 6000).strip():
+            code = 'extract_empty_content'
+        if code:
+            raise ResearchError('Linked-page extraction failed or returned unusable content. No retry was made.', code=code)
         return rows
 
 
@@ -319,20 +343,37 @@ def validate_claims(draft, sources, requirements=None):
     for i, item in enumerate(draft.get('claims', [])[:8] if isinstance(draft.get('claims'), list) else []):
         if not isinstance(item, dict) or not text(item.get('text'), 700).strip():
             continue
-        evidence = []
-        for e in item.get('evidence', [])[:3] if isinstance(item.get('evidence'), list) else []:
+        evidence, rejections = [], {}
+        def reject(code):
+            rejections[code] = rejections.get(code, 0) + 1
+        proposed_evidence = item.get('evidence', [])
+        if not isinstance(proposed_evidence, list):
+            reject('invalid_evidence_list')
+        elif not proposed_evidence:
+            reject('no_evidence')
+        for e in proposed_evidence[:3] if isinstance(proposed_evidence, list) else []:
             if not isinstance(e, dict):
+                reject('invalid_evidence_record')
                 continue
             source = lookup.get(e.get('source_id')) if isinstance(e.get('source_id'), str) else None
             quote = text(e.get('quote'), 600)
             if source and len(quote.strip()) >= 15 and quote in source['content']:
                 evidence.append(passage_context(source, quote))
+            elif not source:
+                reject('unknown_source')
+            elif not isinstance(e.get('quote'), str):
+                reject('invalid_quote')
+            elif len(quote.strip()) < 15:
+                reject('short_quote')
+            else:
+                reject('quote_not_in_source')
         allowed = {r['id'] for r in (requirements or [])}
         requested = item.get('requirement_ids', [])
         mapped = list(dict.fromkeys(r for r in requested if isinstance(r, str) and r in allowed)) if isinstance(requested, list) else []
         claims.append({'requirement_ids': mapped, 'id': 'C' + str(i + 1), 'text': text(item.get('text'), 700),
                        'status': 'uncertain' if evidence else 'unsupported',
-                       'evidence': evidence, 'reason': 'Awaiting independent entailment check.' if evidence
+                       'evidence': evidence, 'evidence_rejections': rejections,
+                       'reason': 'Awaiting independent entailment check.' if evidence
                        else 'No exact supporting passage matched the retrieved evidence.'})
     return claims
 
@@ -464,9 +505,11 @@ def research(question, provider, budget):
             event['actual_tool_result'] = 'returned'
             event['final_outcome'] = 'received; downstream validation required'
             return value
-        except ResearchError:
+        except ResearchError as exc:
             event['actual_tool_result'] = 'failed'
             event['final_outcome'] = 'no result accepted; no retry'
+            if exc.code in EXTRACT_FAILURE_CODES:
+                event['failure_code'] = exc.code
             raise
         finally:
             event['elapsed_seconds'] = round(time.monotonic() - start, 3)
