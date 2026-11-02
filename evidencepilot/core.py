@@ -283,6 +283,16 @@ def validate_claims(draft, sources, requirements=None):
     return claims
 
 
+# Conservative English-language guard, not an entailment classifier. Limited
+# retrieval cannot establish documentation-wide absence. This intentionally
+# requires human scope review even if a model confidently approves the claim.
+DOCUMENTATION_ABSENCE = re.compile(
+    r"\b(?:does|do|did)\s+not\s+(?:specify|establish|mention|list|document|state|detail|disclose)\b"
+    r"|\bno\s+[^.!?\n]{0,100}\b(?:specified|established|mentioned|listed|documented|stated|detailed|disclosed)\b",
+    re.IGNORECASE,
+)
+
+
 def apply_review(claims, review, sources):
     lookup = {s['id']: s for s in sources}
     rows = review.get('reviews', [])
@@ -296,6 +306,11 @@ def apply_review(claims, review, sources):
             continue
         row = matched[0]
         status = row.get('status')
+        if status == 'supported' and DOCUMENTATION_ABSENCE.search(claim['text']):
+            claim['status'] = 'uncertain'
+            claim['reason'] = ('Documentation absence requires human scope review; '
+                               'limited retrieved passages cannot certify missing rules or information.')
+            continue
         if status == 'supported' and any(e.get('match_count', 1) > 1 for e in claim['evidence']):
             claim['status'] = 'uncertain'
             claim['reason'] = 'Repeated quotation has ambiguous source scope; inspect all occurrences.'
