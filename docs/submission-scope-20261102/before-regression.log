@@ -1,0 +1,55 @@
+test_event_dates_cannot_establish_submission_period (test_submission_scope.SubmissionScopeTests.test_event_dates_cannot_establish_submission_period) ... FAIL
+test_event_end_cannot_establish_submission_deadline (test_submission_scope.SubmissionScopeTests.test_event_end_cannot_establish_submission_deadline) ... FAIL
+test_event_window_claim_is_not_a_submission_claim (test_submission_scope.SubmissionScopeTests.test_event_window_claim_is_not_a_submission_claim) ... ok
+test_explicit_submission_passage_can_still_be_supported (test_submission_scope.SubmissionScopeTests.test_explicit_submission_passage_can_still_be_supported) ... ok
+test_mixed_valid_and_scope_error_report_remains_partial (test_submission_scope.SubmissionScopeTests.test_mixed_valid_and_scope_error_report_remains_partial) ... FAIL
+test_unquoted_submission_text_cannot_rescue_wrong_passage (test_submission_scope.SubmissionScopeTests.test_unquoted_submission_text_cannot_rescue_wrong_passage) ... FAIL
+
+======================================================================
+FAIL: test_event_dates_cannot_establish_submission_period (test_submission_scope.SubmissionScopeTests.test_event_dates_cannot_establish_submission_period)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_submission_scope.py", line 22, in test_event_dates_cannot_establish_submission_period
+    self.assertEqual(claim['status'], 'uncertain')
+AssertionError: 'supported' != 'uncertain'
+- supported
++ uncertain
+
+
+======================================================================
+FAIL: test_event_end_cannot_establish_submission_deadline (test_submission_scope.SubmissionScopeTests.test_event_end_cannot_establish_submission_deadline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_submission_scope.py", line 26, in test_event_end_cannot_establish_submission_deadline
+    self.assertEqual(self.review('The submission deadline is November 20, 2026.')['status'], 'uncertain')
+AssertionError: 'supported' != 'uncertain'
+- supported
++ uncertain
+
+
+======================================================================
+FAIL: test_mixed_valid_and_scope_error_report_remains_partial (test_submission_scope.SubmissionScopeTests.test_mixed_valid_and_scope_error_report_remains_partial)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_submission_scope.py", line 60, in test_mixed_valid_and_scope_error_report_remains_partial
+    self.assertEqual(report['status'], 'partial')
+AssertionError: 'evidence_found' != 'partial'
+- evidence_found
++ partial
+
+
+======================================================================
+FAIL: test_unquoted_submission_text_cannot_rescue_wrong_passage (test_submission_scope.SubmissionScopeTests.test_unquoted_submission_text_cannot_rescue_wrong_passage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_submission_scope.py", line 30, in test_unquoted_submission_text_cannot_rescue_wrong_passage
+    self.assertEqual(self.review('Submissions close on November 20, 2026.', content=content)['status'], 'uncertain')
+AssertionError: 'supported' != 'uncertain'
+- supported
++ uncertain
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.017s
+
+FAILED (failures=4)

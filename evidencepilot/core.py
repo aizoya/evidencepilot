@@ -291,6 +291,16 @@ DOCUMENTATION_ABSENCE = re.compile(
     r"|\bno\s+[^.!?\n]{0,100}\b(?:specified|established|mentioned|listed|documented|stated|detailed|disclosed)\b",
     re.IGNORECASE,
 )
+# A necessary scope check, not proof that dates or timezones are correct. Only
+# the actual cited quote counts: unrelated submission text elsewhere on a page
+# must not turn a generic event date into a submission deadline.
+SUBMISSION_TIMING = re.compile(
+    r'\bsubmission\s+(?:period|window|deadline|cutoff)\b'
+    r'|\bsubmissions?\s+(?:open|close|start|end)\b'
+    r'|\bsubmit\b[^.!?\n]{0,80}\bby\b|\bentry\s+deadline\b',
+    re.IGNORECASE,
+)
+SUBMISSION_EVIDENCE = re.compile(r'\b(?:submissions?|submit|entries|entry\s+deadline)\b', re.IGNORECASE)
 
 
 def apply_review(claims, review, sources):
@@ -310,6 +320,12 @@ def apply_review(claims, review, sources):
             claim['status'] = 'uncertain'
             claim['reason'] = ('Documentation absence requires human scope review; '
                                'limited retrieved passages cannot certify missing rules or information.')
+            continue
+        if (status == 'supported' and SUBMISSION_TIMING.search(claim['text'])
+                and not any(SUBMISSION_EVIDENCE.search(e['quote']) for e in claim['evidence'])):
+            claim['status'] = 'uncertain'
+            claim['reason'] = ('A submission timing claim needs an explicitly scoped submission passage; '
+                               'event dates alone do not establish a submission period or deadline.')
             continue
         if status == 'supported' and any(e.get('match_count', 1) > 1 for e in claim['evidence']):
             claim['status'] = 'uncertain'
