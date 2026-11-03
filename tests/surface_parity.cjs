@@ -20,6 +20,37 @@ const context = vm.createContext({console, Blob, URL:{createObjectURL:blob=>{blo
 vm.runInContext(fs.readFileSync('evidencepilot/static/app.js','utf8'),context);
 context.input = report;
 vm.runInContext('render(input)',context);
+if (process.argv[3] === 'supported') {
+  // Same actual renderer and DOM double; not browser navigation or layout proof.
+  assert.equal(report.model, 'test-only');
+  assert.equal(report.status, 'evidence_found');
+  assert.equal(nodes.get('failure-card').hidden, true);
+  assert.equal(nodes.get('failure-presentation').hidden, true);
+  assert.equal(nodes.get('rich-report').hidden, false);
+  assert.ok(nodes.get('conflicts').textContent.includes('This does not prove the sources agree.'));
+  const descendants = node => [node, ...node.children.flatMap(descendants)];
+  const rendered = descendants(nodes.get('claims'));
+  const links = rendered.filter(n => n.tag === 'a');
+  const quotes = rendered.filter(n => n.tag === 'blockquote');
+  const evidence = report.claims.flatMap(c => c.evidence);
+  assert.equal(quotes.length, evidence.length);
+  assert.equal(links.length, evidence.length);
+  report.claims.forEach(c => assert.ok(nodes.get('claims').textContent.includes(c.text)));
+  evidence.forEach((e, i) => {
+    assert.equal(quotes[i].textContent, e.quote);
+    assert.equal(links[i].href, report.sources.find(s => s.id === e.source_id).url);
+    assert.equal(links[i].target, '_blank');
+    assert.equal(links[i].rel, 'noopener noreferrer');
+  });
+  nodes.get('download').onclick();
+  assert.equal(downloads.length, 1);
+  assert.equal(downloads[0].name, `evidencepilot-${report.run_id}.json`);
+  blobs[0].text().then(raw => {
+    assert.deepEqual(JSON.parse(raw), report);
+    assert.equal(requests.filter(url => url !== '/health').length, 0);
+    console.log('SUPPORTED FIXTURE: exact quotes, resolved source links, uncertainty language and bound export passed; DOM double only, no live providers or navigation.');
+  }).catch(error => {console.error(error); process.exitCode = 1;});
+} else {
 assert.ok(nodes.get('failure-card'), 'Missing failed-search evidence card');
 assert.ok(nodes.get('plain-report'), 'Missing plain-text failure mode');
 const card = nodes.get('failure-card').textContent;
@@ -69,3 +100,4 @@ if (process.argv[3]) fs.writeFileSync(process.argv[3], JSON.stringify({
 },null,2));
 console.log('SURFACE-2: parity, safe trace, no answer, same next step, mode switching, stale-record/version rejection, redaction, and zero external actions passed (DOM double).');
 }).catch(error=>{console.error(error);process.exitCode=1;});
+}
