@@ -1,0 +1,53 @@
+test_invented_words_or_removed_negation_stay_unsupported (test_citation_attachment.CitationAttachmentTests.test_invented_words_or_removed_negation_stay_unsupported) ... ok
+test_model_scope_rejection_still_controls_semantic_support (test_citation_attachment.CitationAttachmentTests.test_model_scope_rejection_still_controls_semantic_support) ... FAIL
+test_pipeline_recovers_spacing_without_extra_calls (test_citation_attachment.CitationAttachmentTests.test_pipeline_recovers_spacing_without_extra_calls) ... FAIL
+test_punctuation_is_not_silently_rewritten (test_citation_attachment.CitationAttachmentTests.test_punctuation_is_not_silently_rewritten) ... ok
+test_whitespace_equivalent_occurrences_remain_ambiguous (test_citation_attachment.CitationAttachmentTests.test_whitespace_equivalent_occurrences_remain_ambiguous) ... FAIL
+test_whitespace_only_match_stores_exact_original_passage (test_citation_attachment.CitationAttachmentTests.test_whitespace_only_match_stores_exact_original_passage) ... FAIL
+
+======================================================================
+FAIL: test_model_scope_rejection_still_controls_semantic_support (test_citation_attachment.CitationAttachmentTests.test_model_scope_rejection_still_controls_semantic_support)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/evidencepilot/tests/test_citation_attachment.py", line 48, in test_model_scope_rejection_still_controls_semantic_support
+    self.assertTrue(claim['evidence'])
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_pipeline_recovers_spacing_without_extra_calls (test_citation_attachment.CitationAttachmentTests.test_pipeline_recovers_spacing_without_extra_calls)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/evidencepilot/tests/test_citation_attachment.py", line 60, in test_pipeline_recovers_spacing_without_extra_calls
+    self.assertEqual(report['status'], 'evidence_found')
+AssertionError: 'insufficient_evidence' != 'evidence_found'
+- insufficient_evidence
++ evidence_found
+
+
+======================================================================
+FAIL: test_whitespace_equivalent_occurrences_remain_ambiguous (test_citation_attachment.CitationAttachmentTests.test_whitespace_equivalent_occurrences_remain_ambiguous)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/evidencepilot/tests/test_citation_attachment.py", line 42, in test_whitespace_equivalent_occurrences_remain_ambiguous
+    self.assertEqual(claim['status'], 'uncertain')
+AssertionError: 'unsupported' != 'uncertain'
+- unsupported
++ uncertain
+
+
+======================================================================
+FAIL: test_whitespace_only_match_stores_exact_original_passage (test_citation_attachment.CitationAttachmentTests.test_whitespace_only_match_stores_exact_original_passage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/evidencepilot/tests/test_citation_attachment.py", line 21, in test_whitespace_only_match_stores_exact_original_passage
+    self.assertEqual(claim['status'], 'supported')
+AssertionError: 'unsupported' != 'supported'
+- unsupported
+? --
++ supported
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.005s
+
+FAILED (failures=4)

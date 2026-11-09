@@ -1,0 +1,7 @@
+test_failed_search_card_text_and_bound_export (test_surface_parity.SurfaceParityTests.test_failed_search_card_text_and_bound_export) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.109s
+
+OK
+SURFACE-2: parity, safe trace, no answer, same next step, mode switching, stale-record/version rejection, redaction, and zero external actions passed (DOM double).

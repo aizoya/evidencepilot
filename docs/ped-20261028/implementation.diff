@@ -1,0 +1,15 @@
+--- baseline/evidencepilot/core.py
++++ patched/evidencepilot/core.py
+@@ -380,6 +380,12 @@
+     finally:
+         report['requirement_outcomes'] = requirement_outcomes(report['requirements'], report['claims'])
+         report['unmapped_claim_ids'] = [c['id'] for c in report['claims'] if not c.get('requirement_ids')]
++        if report['status'] == 'evidence_found' and (
++            report['unmapped_claim_ids'] or not report['requirement_outcomes'] or
++            any(r['state'] != 'supported_findings' for r in report['requirement_outcomes'])
++        ):
++            report['status'] = 'partial'
++            report['warnings'].append('Supported findings do not cover every proposed requirement; inspect unknown requirements and unmapped claims.')
+         report['coverage_note'] = 'Planner proposals and mapped findings only; full requirement coverage and satisfaction are not verified.'
+         report['execution_events'].append({'requirement_id': 'R1', 'source_ids': [s['id'] for s in report['sources']], 'evidence': [{'claim_id': c['id'], 'requirement_ids': c.get('requirement_ids', []), 'source_ids': [e['source_id'] for e in c['evidence']], 'status': c['status']} for c in report['claims']], 'proposed_action': 'render_report', 'applicable_approval': 'local report only; no external writes', 'actual_tool_result': report['status'], 'final_outcome': report['status']})
+         report['elapsed_seconds'] = round(time.monotonic() - started, 2)

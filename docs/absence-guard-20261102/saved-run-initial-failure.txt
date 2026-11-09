@@ -1,0 +1,1 @@
+Initial offline audit assertion failed: expected changes C4/C6/C8 only. Inspection found C5 was also correctly held uncertain because its compound claim asserted no restrictions mentioned. The original live run was not modified or repeated. Added this wording to development regressions.

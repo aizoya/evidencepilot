@@ -1,0 +1,11 @@
+{
+  "changed_existing_controls": [
+    "tests/test_core.py",
+    "tests/test_report_completeness.py"
+  ],
+  "fixture_only_independent_review": true,
+  "assertions_unchanged": true,
+  "approval_gate_unchanged": true,
+  "grading_labels_unchanged": true,
+  "boundary": "procedural and hash verification; not root-proof access control"
+}

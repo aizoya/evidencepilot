@@ -1,0 +1,55 @@
+{
+  "classification": "development fixture derived from first live failure; not holdout",
+  "source_run_id": "198d00d0-87fb-4d8c-8f33-3c7a9d1f27a1",
+  "original_file_sha256": "b178ce3f1c432d3c49d411d3ff87aaeef7989d9b8dc2ab479ddb9b90fcb683e3",
+  "cases": [
+    {
+      "claim_id": "C4",
+      "claim_text": "The ODSC \u00d7 Nebius Hackathon does not specify detailed submission requirements beyond building a working research agent with the required tools, and final tracks, challenges, and prizes are to be announced.",
+      "original_status": "supported",
+      "evidence": [
+        {
+          "source_id": "S3",
+          "source_url": "https://www.eventbrite.com/e/odsc-ai-x-nebius-hackathon-tickets-2002152139947",
+          "quote": "Final tracks, partner challenges, and prizes will be announced before the event."
+        }
+      ]
+    },
+    {
+      "claim_id": "C5",
+      "claim_text": "The eligibility for the ODSC \u00d7 Nebius Hackathon includes AI and ML engineers, data scientists, developers, agent builders, and startup teams, with no restrictions mentioned beyond being open to everyone.",
+      "original_status": "supported",
+      "evidence": [
+        {
+          "source_id": "S1",
+          "source_url": "https://www.meetup.com/san-francisco-odsc/events/316812136",
+          "quote": "Come solo, bring your team, or find teammates at the kickoff or online. AI and ML engineers, data scientists, developers, agent builders, and startup teams are all welcome."
+        }
+      ]
+    },
+    {
+      "claim_id": "C6",
+      "claim_text": "The ODSC \u00d7 Nebius Hackathon does not establish specific technical submission formats, judging criteria beyond evaluation on evidence quality and tool use, or prize details, as these are to be announced.",
+      "original_status": "supported",
+      "evidence": [
+        {
+          "source_id": "S1",
+          "source_url": "https://www.meetup.com/san-francisco-odsc/events/316812136",
+          "quote": "Prizes and judges will be announced soon."
+        }
+      ]
+    },
+    {
+      "claim_id": "C8",
+      "claim_text": "The ODSC \u00d7 Nebius Hackathon does not establish a submission deadline beyond the end date of November 20, 2026, nor does it specify required deliverables such as code repositories, videos, or written documentation.",
+      "original_status": "supported",
+      "evidence": [
+        {
+          "source_id": "S1",
+          "source_url": "https://www.meetup.com/san-francisco-odsc/events/316812136",
+          "quote": "\ud83d\udcc5 **October 28\u2013November 20, 2026**  \n\ud83c\udf0e **Kickoff at ODSC AI West + livestream | Virtual build**  \n\ud83c\udf9f\ufe0f **Free and open to everyone**  \n**[Check the main website \u2192](https://hackathon.odsc.ai/event?utm_source=luma)**"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+test_classification_reaches_trace_without_retry_or_payload (test_failure_diagnostics.FailureDiagnosticsTests.test_classification_reaches_trace_without_retry_or_payload) ... FAIL
+test_extract_failure_categories_keep_raw_payload_private (test_failure_diagnostics.FailureDiagnosticsTests.test_extract_failure_categories_keep_raw_payload_private) ... 
+  test_extract_failure_categories_keep_raw_payload_private (test_failure_diagnostics.FailureDiagnosticsTests.test_extract_failure_categories_keep_raw_payload_private) (code='extract_url_failed') ... FAIL
+  test_extract_failure_categories_keep_raw_payload_private (test_failure_diagnostics.FailureDiagnosticsTests.test_extract_failure_categories_keep_raw_payload_private) (code='extract_empty_results') ... FAIL
+  test_extract_failure_categories_keep_raw_payload_private (test_failure_diagnostics.FailureDiagnosticsTests.test_extract_failure_categories_keep_raw_payload_private) (code='extract_invalid_structure') ... FAIL
+  test_extract_failure_categories_keep_raw_payload_private (test_failure_diagnostics.FailureDiagnosticsTests.test_extract_failure_categories_keep_raw_payload_private) (code='extract_empty_content') ... FAIL
+  test_extract_failure_categories_keep_raw_payload_private (test_failure_diagnostics.FailureDiagnosticsTests.test_extract_failure_categories_keep_raw_payload_private) (code='extract_url_mismatch') ... FAIL
+test_rejected_citation_counts_do_not_retain_input_or_promote_claim (test_failure_diagnostics.FailureDiagnosticsTests.test_rejected_citation_counts_do_not_retain_input_or_promote_claim) ... 
+  test_rejected_citation_counts_do_not_retain_input_or_promote_claim (test_failure_diagnostics.FailureDiagnosticsTests.test_rejected_citation_counts_do_not_retain_input_or_promote_claim) (code='unknown_source') ... FAIL
+  test_rejected_citation_counts_do_not_retain_input_or_promote_claim (test_failure_diagnostics.FailureDiagnosticsTests.test_rejected_citation_counts_do_not_retain_input_or_promote_claim) (code='quote_not_in_source') ... FAIL
+  test_rejected_citation_counts_do_not_retain_input_or_promote_claim (test_failure_diagnostics.FailureDiagnosticsTests.test_rejected_citation_counts_do_not_retain_input_or_promote_claim) (code='invalid_quote') ... FAIL
+  test_rejected_citation_counts_do_not_retain_input_or_promote_claim (test_failure_diagnostics.FailureDiagnosticsTests.test_rejected_citation_counts_do_not_retain_input_or_promote_claim) (code='short_quote') ... FAIL
+  test_rejected_citation_counts_do_not_retain_input_or_promote_claim (test_failure_diagnostics.FailureDiagnosticsTests.test_rejected_citation_counts_do_not_retain_input_or_promote_claim) (code='no_evidence') ... FAIL
+  test_rejected_citation_counts_do_not_retain_input_or_promote_claim (test_failure_diagnostics.FailureDiagnosticsTests.test_rejected_citation_counts_do_not_retain_input_or_promote_claim) (code='invalid_evidence_list') ... FAIL
+test_valid_exact_evidence_still_supported (test_failure_diagnostics.FailureDiagnosticsTests.test_valid_exact_evidence_still_supported) ... FAIL
+test_adapter_uses_basic_single_url_and_records_returned_usage (test_linked_extract.LinkedExtractTests.test_adapter_uses_basic_single_url_and_records_returned_usage) ... ok
+test_extract_replaces_final_search_and_preserves_url_identity (test_linked_extract.LinkedExtractTests.test_extract_replaces_final_search_and_preserves_url_identity) ... ok
+test_failed_extract_is_visible_without_retry_or_fourth_call (test_linked_extract.LinkedExtractTests.test_failed_extract_is_visible_without_retry_or_fourth_call) ... ok
+test_http_200_failure_and_empty_content_are_not_success (test_linked_extract.LinkedExtractTests.test_http_200_failure_and_empty_content_are_not_success) ... ok
+test_transport_failure_reserves_attempt_and_has_no_retry (test_linked_extract.LinkedExtractTests.test_transport_failure_reserves_attempt_and_has_no_retry) ... ok
+test_unrequested_response_url_is_rejected (test_linked_extract.LinkedExtractTests.test_unrequested_response_url_is_rejected) ... ok
+test_unsafe_target_makes_no_provider_request (test_linked_extract.LinkedExtractTests.test_unsafe_target_makes_no_provider_request) ... ok
+
+======================================================================
+FAIL: test_classification_reaches_trace_without_retry_or_payload (test_failure_diagnostics.FailureDiagnosticsTests.test_classification_reaches_trace_without_retry_or_payload)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_failure_diagnostics.py", line 64, in test_classification_reaches_trace_without_retry_or_payload
+    self.assertEqual(failed[0].get('failure_code'), 'extract_url_failed')
+AssertionError: None != 'extract_url_failed'
+
+======================================================================
+FAIL: test_extract_failure_categories_keep_raw_payload_private (test_failure_diagnostics.FailureDiagnosticsTests.test_extract_failure_categories_keep_raw_payload_private) (code='extract_url_failed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_failure_diagnostics.py", line 23, in test_extract_failure_categories_keep_raw_payload_private
+    self.assertEqual(getattr(caught.exception, 'code', None), code)
+AssertionError: None != 'extract_url_failed'
+
+======================================================================
+FAIL: test_extract_failure_categories_keep_raw_payload_private (test_failure_diagnostics.FailureDiagnosticsTests.test_extract_failure_categories_keep_raw_payload_private) (code='extract_empty_results')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_failure_diagnostics.py", line 23, in test_extract_failure_categories_keep_raw_payload_private
+    self.assertEqual(getattr(caught.exception, 'code', None), code)
+AssertionError: None != 'extract_empty_results'
+
+======================================================================
+FAIL: test_extract_failure_categories_keep_raw_payload_private (test_failure_diagnostics.FailureDiagnosticsTests.test_extract_failure_categories_keep_raw_payload_private) (code='extract_invalid_structure')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_failure_diagnostics.py", line 23, in test_extract_failure_categories_keep_raw_payload_private
+    self.assertEqual(getattr(caught.exception, 'code', None), code)
+AssertionError: None != 'extract_invalid_structure'
+
+======================================================================
+FAIL: test_extract_failure_categories_keep_raw_payload_private (test_failure_diagnostics.FailureDiagnosticsTests.test_extract_failure_categories_keep_raw_payload_private) (code='extract_empty_content')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_failure_diagnostics.py", line 23, in test_extract_failure_categories_keep_raw_payload_private
+    self.assertEqual(getattr(caught.exception, 'code', None), code)
+AssertionError: None != 'extract_empty_content'
+
+======================================================================
+FAIL: test_extract_failure_categories_keep_raw_payload_private (test_failure_diagnostics.FailureDiagnosticsTests.test_extract_failure_categories_keep_raw_payload_private) (code='extract_url_mismatch')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_failure_diagnostics.py", line 23, in test_extract_failure_categories_keep_raw_payload_private
+    self.assertEqual(getattr(caught.exception, 'code', None), code)
+AssertionError: None != 'extract_url_mismatch'
+
+======================================================================
+FAIL: test_rejected_citation_counts_do_not_retain_input_or_promote_claim (test_failure_diagnostics.FailureDiagnosticsTests.test_rejected_citation_counts_do_not_retain_input_or_promote_claim) (code='unknown_source')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_failure_diagnostics.py", line 41, in test_rejected_citation_counts_do_not_retain_input_or_promote_claim
+    self.assertEqual(claims[0].get('evidence_rejections'), {code: 1})
+AssertionError: None != {'unknown_source': 1}
+
+======================================================================
+FAIL: test_rejected_citation_counts_do_not_retain_input_or_promote_claim (test_failure_diagnostics.FailureDiagnosticsTests.test_rejected_citation_counts_do_not_retain_input_or_promote_claim) (code='quote_not_in_source')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_failure_diagnostics.py", line 41, in test_rejected_citation_counts_do_not_retain_input_or_promote_claim
+    self.assertEqual(claims[0].get('evidence_rejections'), {code: 1})
+AssertionError: None != {'quote_not_in_source': 1}
+
+======================================================================
+FAIL: test_rejected_citation_counts_do_not_retain_input_or_promote_claim (test_failure_diagnostics.FailureDiagnosticsTests.test_rejected_citation_counts_do_not_retain_input_or_promote_claim) (code='invalid_quote')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_failure_diagnostics.py", line 41, in test_rejected_citation_counts_do_not_retain_input_or_promote_claim
+    self.assertEqual(claims[0].get('evidence_rejections'), {code: 1})
+AssertionError: None != {'invalid_quote': 1}
+
+======================================================================
+FAIL: test_rejected_citation_counts_do_not_retain_input_or_promote_claim (test_failure_diagnostics.FailureDiagnosticsTests.test_rejected_citation_counts_do_not_retain_input_or_promote_claim) (code='short_quote')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_failure_diagnostics.py", line 41, in test_rejected_citation_counts_do_not_retain_input_or_promote_claim
+    self.assertEqual(claims[0].get('evidence_rejections'), {code: 1})
+AssertionError: None != {'short_quote': 1}
+
+======================================================================
+FAIL: test_rejected_citation_counts_do_not_retain_input_or_promote_claim (test_failure_diagnostics.FailureDiagnosticsTests.test_rejected_citation_counts_do_not_retain_input_or_promote_claim) (code='no_evidence')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_failure_diagnostics.py", line 41, in test_rejected_citation_counts_do_not_retain_input_or_promote_claim
+    self.assertEqual(claims[0].get('evidence_rejections'), {code: 1})
+AssertionError: None != {'no_evidence': 1}
+
+======================================================================
+FAIL: test_rejected_citation_counts_do_not_retain_input_or_promote_claim (test_failure_diagnostics.FailureDiagnosticsTests.test_rejected_citation_counts_do_not_retain_input_or_promote_claim) (code='invalid_evidence_list')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_failure_diagnostics.py", line 41, in test_rejected_citation_counts_do_not_retain_input_or_promote_claim
+    self.assertEqual(claims[0].get('evidence_rejections'), {code: 1})
+AssertionError: None != {'invalid_evidence_list': 1}
+
+======================================================================
+FAIL: test_valid_exact_evidence_still_supported (test_failure_diagnostics.FailureDiagnosticsTests.test_valid_exact_evidence_still_supported)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_failure_diagnostics.py", line 50, in test_valid_exact_evidence_still_supported
+    self.assertEqual(claims[0].get('evidence_rejections'), {})
+AssertionError: None != {}
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.017s
+
+FAILED (failures=13)

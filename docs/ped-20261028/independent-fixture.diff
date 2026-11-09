@@ -1,0 +1,13 @@
+--- baseline/tests/test_core.py
++++ patched/tests/test_core.py
+@@ -26,8 +26,8 @@
+         return [{'url':'https://example.com/pricing', 'title':'Pricing', 'raw_content':PASSAGE}]
+     def model_json(self, purpose, instruction, data):
+         self.calls.append(purpose)
+-        if purpose == 'plan': return {'queries':['official pricing', 'pricing limits']}
+-        if purpose == 'synthesis': return {'claims':[{'text':'There is a free plan capped at five reports per month.', 'evidence':[{'source_id':'S1','quote':PASSAGE}]}]}
++        if purpose == 'plan': return {'queries':['official pricing', 'pricing limits'], 'requirements':['Check monthly allowance']}
++        if purpose == 'synthesis': return {'claims':[{'text':'There is a free plan capped at five reports per month.', 'requirement_ids':['R1'], 'evidence':[{'source_id':'S1','quote':PASSAGE}]}]}
+         if self.mode == 'review_error': raise ResearchError('Reviewer failed.')
+         return {'reviews':[{'claim_id':'C1','status':'supported','reason':'The passage directly states the limit.'}], 'contradictions':[]}
+ 

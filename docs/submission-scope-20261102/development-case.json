@@ -1,0 +1,15 @@
+{
+  "classification": "development only; derived from already-inspected live failure, not holdout",
+  "original_run_id": "198d00d0-87fb-4d8c-8f33-3c7a9d1f27a1",
+  "original_sha256": "b178ce3f1c432d3c49d411d3ff87aaeef7989d9b8dc2ab479ddb9b90fcb683e3",
+  "claim_id": "C3",
+  "claim_text": "The submission period for the ODSC \u00d7 Nebius Hackathon runs from October 28 to November 20, 2026, with a virtual build phase following the kickoff.",
+  "original_status": "supported",
+  "quoted_evidence": [
+    {
+      "quote": "\ud83d\udcc5 **October 28\u2013November 20, 2026**  \n\ud83c\udf0e **Kickoff at ODSC AI West + livestream | Virtual build**",
+      "source_id": "S1",
+      "url": "https://www.meetup.com/san-francisco-odsc/events/316812136"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+test_link_is_not_authority_and_cannot_expand_actions (test_linked_source.LinkedSourceTests.test_link_is_not_authority_and_cannot_expand_actions) ... ok
+test_main_site_is_targeted_without_fourth_search (test_linked_source.LinkedSourceTests.test_main_site_is_targeted_without_fourth_search) ... FAIL
+test_missed_site_remains_visible_and_partial (test_linked_source.LinkedSourceTests.test_missed_site_remains_visible_and_partial) ... FAIL
+test_no_link_keeps_existing_contrary_search (test_linked_source.LinkedSourceTests.test_no_link_keeps_existing_contrary_search) ... ok
+test_unsafe_or_unlabelled_links_do_not_steer_search (test_linked_source.LinkedSourceTests.test_unsafe_or_unlabelled_links_do_not_steer_search) ... ok
+
+======================================================================
+FAIL: test_main_site_is_targeted_without_fourth_search (test_linked_source.LinkedSourceTests.test_main_site_is_targeted_without_fourth_search)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_linked_source.py", line 38, in test_main_site_is_targeted_without_fourth_search
+    self.assertTrue(provider.queries[-1].startswith('site:rules.example.com '))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_missed_site_remains_visible_and_partial (test_linked_source.LinkedSourceTests.test_missed_site_remains_visible_and_partial)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_linked_source.py", line 48, in test_missed_site_remains_visible_and_partial
+    self.assertTrue(any('linked website' in warning.lower() for warning in report['warnings']))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.026s
+
+FAILED (failures=2)

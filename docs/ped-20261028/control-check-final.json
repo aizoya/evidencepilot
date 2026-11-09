@@ -1,0 +1,10 @@
+{
+  "changed_frozen_files": [
+    "tests/test_core.py"
+  ],
+  "independently_authorized_fixture_only": true,
+  "human_labels_unchanged": true,
+  "approval_web_gate_unchanged": true,
+  "grading_assertions_unchanged": true,
+  "authority_boundary": "procedural independent reviewer separation; not a root-proof filesystem sandbox"
+}

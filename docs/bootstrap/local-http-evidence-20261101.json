@@ -1,0 +1,69 @@
+{
+  "classification": "Actual loopback HTTP server execution with live research disabled; not browser/mobile or live-provider verification",
+  "source_commit": "629a9179e422b549195a7fa2a90fdfd0110e210f",
+  "checks": [
+    {
+      "path": "/",
+      "method": "GET",
+      "status": 200,
+      "expected_status": 200,
+      "bytes": 3262,
+      "security_headers_present": true
+    },
+    {
+      "path": "/app.js",
+      "method": "GET",
+      "status": 200,
+      "expected_status": 200,
+      "bytes": 8302,
+      "security_headers_present": true
+    },
+    {
+      "path": "/style.css",
+      "method": "GET",
+      "status": 200,
+      "expected_status": 200,
+      "bytes": 3353,
+      "security_headers_present": true
+    },
+    {
+      "path": "/health",
+      "method": "GET",
+      "status": 200,
+      "expected_status": 200,
+      "bytes": 41,
+      "security_headers_present": true,
+      "research_ready": false
+    },
+    {
+      "path": "/api/research",
+      "method": "POST",
+      "status": 401,
+      "expected_status": 401,
+      "bytes": 54,
+      "security_headers_present": true
+    },
+    {
+      "path": "/api/research",
+      "method": "POST",
+      "status": 403,
+      "expected_status": 403,
+      "bytes": 35,
+      "security_headers_present": true
+    },
+    {
+      "path": "/api/research",
+      "method": "POST",
+      "status": 503,
+      "expected_status": 503,
+      "bytes": 81,
+      "security_headers_present": true
+    }
+  ],
+  "passed": 7,
+  "provider_calls": 0,
+  "quota_database_created": false,
+  "server_stopped": true,
+  "cost_usd": null,
+  "cost_note": "No provider invocation; no billing measurement performed."
+}

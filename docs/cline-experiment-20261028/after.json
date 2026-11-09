@@ -1,0 +1,1709 @@
+[
+  {
+    "outcome": "structured_report",
+    "report": {
+      "schema_version": 1,
+      "run_id": "67aa2ec8-258c-4463-ae55-462e51f6cc93",
+      "created_at": "2026-10-28T20:36:12.551756+00:00",
+      "question": "What are the synthetic plan limits?",
+      "model": "test-only",
+      "status": "insufficient_evidence",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal"
+        }
+      ],
+      "requirement_outcomes": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal",
+          "state": "not_established",
+          "claim_ids": []
+        }
+      ],
+      "sources": [],
+      "claims": [],
+      "contradictions": [],
+      "warnings": [
+        "Provider request failed or returned invalid data. No automatic retry was made.",
+        "Provider request failed or returned invalid data. No automatic retry was made.",
+        "Provider request failed or returned invalid data. No automatic retry was made.",
+        "No usable source material was retrieved. No factual answer is available."
+      ],
+      "trace": [
+        {
+          "step": "search",
+          "query": "official pricing",
+          "status": "failed"
+        },
+        {
+          "step": "search",
+          "query": "pricing limits",
+          "status": "failed"
+        },
+        {
+          "step": "search",
+          "query": "What are the synthetic plan limits? contrary evidence limitations conflicting findings",
+          "status": "failed"
+        }
+      ],
+      "limits": {
+        "search_calls": 3,
+        "model_calls": 3,
+        "max_output_tokens_per_call": 2200
+      },
+      "verification": "Exact passages checked by code; entailment and contradictions assessed by an AI reviewer. Human verification remains necessary.",
+      "execution_events": [
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "plan",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "failed",
+          "final_outcome": "no result accepted; no retry",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "failed",
+          "final_outcome": "no result accepted; no retry",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "failed",
+          "final_outcome": "no result accepted; no retry",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "source_ids": [],
+          "evidence": [],
+          "proposed_action": "render_report",
+          "applicable_approval": "local report only; no external writes",
+          "actual_tool_result": "insufficient_evidence",
+          "final_outcome": "insufficient_evidence"
+        }
+      ],
+      "unmapped_claim_ids": [],
+      "coverage_note": "Planner proposals and mapped findings only; full requirement coverage and satisfaction are not verified.",
+      "elapsed_seconds": 0.0,
+      "usage": [],
+      "cost": {
+        "usd": null,
+        "basis": "Not priced. Provider credits/tokens are usage, not an invoice.",
+        "max_reserved_tavily_credits": 3,
+        "max_nebius_output_tokens": 6600
+      }
+    },
+    "case": "search_interrupted",
+    "repetition": 1,
+    "execution_class": "simulation",
+    "simulated_http_attempts": 3,
+    "real_provider_calls": 0,
+    "local_elapsed_seconds": 0.008937,
+    "live_latency": null,
+    "actual_cost": null
+  },
+  {
+    "outcome": "structured_report",
+    "report": {
+      "schema_version": 1,
+      "run_id": "38584d75-0fed-4c46-8a59-734e2822cd6a",
+      "created_at": "2026-10-28T20:36:12.559652+00:00",
+      "question": "What are the synthetic plan limits?",
+      "model": "test-only",
+      "status": "insufficient_evidence",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal"
+        }
+      ],
+      "requirement_outcomes": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal",
+          "state": "not_established",
+          "claim_ids": []
+        }
+      ],
+      "sources": [],
+      "claims": [],
+      "contradictions": [],
+      "warnings": [
+        "Provider request failed or returned invalid data. No automatic retry was made.",
+        "Provider request failed or returned invalid data. No automatic retry was made.",
+        "Provider request failed or returned invalid data. No automatic retry was made.",
+        "No usable source material was retrieved. No factual answer is available."
+      ],
+      "trace": [
+        {
+          "step": "search",
+          "query": "official pricing",
+          "status": "failed"
+        },
+        {
+          "step": "search",
+          "query": "pricing limits",
+          "status": "failed"
+        },
+        {
+          "step": "search",
+          "query": "What are the synthetic plan limits? contrary evidence limitations conflicting findings",
+          "status": "failed"
+        }
+      ],
+      "limits": {
+        "search_calls": 3,
+        "model_calls": 3,
+        "max_output_tokens_per_call": 2200
+      },
+      "verification": "Exact passages checked by code; entailment and contradictions assessed by an AI reviewer. Human verification remains necessary.",
+      "execution_events": [
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "plan",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "failed",
+          "final_outcome": "no result accepted; no retry",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "failed",
+          "final_outcome": "no result accepted; no retry",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "failed",
+          "final_outcome": "no result accepted; no retry",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "source_ids": [],
+          "evidence": [],
+          "proposed_action": "render_report",
+          "applicable_approval": "local report only; no external writes",
+          "actual_tool_result": "insufficient_evidence",
+          "final_outcome": "insufficient_evidence"
+        }
+      ],
+      "unmapped_claim_ids": [],
+      "coverage_note": "Planner proposals and mapped findings only; full requirement coverage and satisfaction are not verified.",
+      "elapsed_seconds": 0.0,
+      "usage": [],
+      "cost": {
+        "usd": null,
+        "basis": "Not priced. Provider credits/tokens are usage, not an invoice.",
+        "max_reserved_tavily_credits": 3,
+        "max_nebius_output_tokens": 6600
+      }
+    },
+    "case": "search_interrupted",
+    "repetition": 2,
+    "execution_class": "simulation",
+    "simulated_http_attempts": 3,
+    "real_provider_calls": 0,
+    "local_elapsed_seconds": 0.00719,
+    "live_latency": null,
+    "actual_cost": null
+  },
+  {
+    "outcome": "structured_report",
+    "report": {
+      "schema_version": 1,
+      "run_id": "22d4dc2e-29cb-45c3-b593-07afb87fcb17",
+      "created_at": "2026-10-28T20:36:12.568642+00:00",
+      "question": "What are the synthetic plan limits?",
+      "model": "test-only",
+      "status": "insufficient_evidence",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal"
+        }
+      ],
+      "requirement_outcomes": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal",
+          "state": "not_established",
+          "claim_ids": []
+        }
+      ],
+      "sources": [],
+      "claims": [],
+      "contradictions": [],
+      "warnings": [
+        "Provider request failed or returned invalid data. No automatic retry was made.",
+        "Provider request failed or returned invalid data. No automatic retry was made.",
+        "Provider request failed or returned invalid data. No automatic retry was made.",
+        "No usable source material was retrieved. No factual answer is available."
+      ],
+      "trace": [
+        {
+          "step": "search",
+          "query": "official pricing",
+          "status": "failed"
+        },
+        {
+          "step": "search",
+          "query": "pricing limits",
+          "status": "failed"
+        },
+        {
+          "step": "search",
+          "query": "What are the synthetic plan limits? contrary evidence limitations conflicting findings",
+          "status": "failed"
+        }
+      ],
+      "limits": {
+        "search_calls": 3,
+        "model_calls": 3,
+        "max_output_tokens_per_call": 2200
+      },
+      "verification": "Exact passages checked by code; entailment and contradictions assessed by an AI reviewer. Human verification remains necessary.",
+      "execution_events": [
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "plan",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "failed",
+          "final_outcome": "no result accepted; no retry",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "failed",
+          "final_outcome": "no result accepted; no retry",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "failed",
+          "final_outcome": "no result accepted; no retry",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "source_ids": [],
+          "evidence": [],
+          "proposed_action": "render_report",
+          "applicable_approval": "local report only; no external writes",
+          "actual_tool_result": "insufficient_evidence",
+          "final_outcome": "insufficient_evidence"
+        }
+      ],
+      "unmapped_claim_ids": [],
+      "coverage_note": "Planner proposals and mapped findings only; full requirement coverage and satisfaction are not verified.",
+      "elapsed_seconds": 0.0,
+      "usage": [],
+      "cost": {
+        "usd": null,
+        "basis": "Not priced. Provider credits/tokens are usage, not an invoice.",
+        "max_reserved_tavily_credits": 3,
+        "max_nebius_output_tokens": 6600
+      }
+    },
+    "case": "search_interrupted",
+    "repetition": 3,
+    "execution_class": "simulation",
+    "simulated_http_attempts": 3,
+    "real_provider_calls": 0,
+    "local_elapsed_seconds": 0.008172,
+    "live_latency": null,
+    "actual_cost": null
+  },
+  {
+    "outcome": "structured_report",
+    "report": {
+      "schema_version": 1,
+      "run_id": "980dedd1-fa3f-438d-9e20-b8aa20d9f007",
+      "created_at": "2026-10-28T20:36:12.577009+00:00",
+      "question": "What are the synthetic plan limits?",
+      "model": "test-only",
+      "status": "failed",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal"
+        }
+      ],
+      "requirement_outcomes": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal",
+          "state": "not_established",
+          "claim_ids": [
+            "C1"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Pricing",
+          "url": "https://example.com/pricing",
+          "content": "The service offers a free plan with five reports per month.",
+          "sha256": "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406",
+          "retrieved_at": "2026-10-28T20:36:12.577648+00:00",
+          "published_at": null,
+          "content_type": "extracted_page",
+          "credibility": "Unrated: assess publisher, date, method and independence."
+        }
+      ],
+      "claims": [
+        {
+          "requirement_ids": [
+            "R1"
+          ],
+          "id": "C1",
+          "text": "There is a free plan capped at five reports per month.",
+          "status": "uncertain",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "The service offers a free plan with five reports per month.",
+              "span_start": 0,
+              "span_end": 59,
+              "match_count": 1,
+              "section_heading": null,
+              "table_header": [],
+              "context": "The service offers a free plan with five reports per month.",
+              "context_basis": "retained_source_text; extracted text may be truncated or incomplete"
+            }
+          ],
+          "reason": "Awaiting independent entailment check."
+        }
+      ],
+      "contradictions": [],
+      "warnings": [
+        "Provider request failed or returned invalid data. No automatic retry was made."
+      ],
+      "trace": [
+        {
+          "step": "search",
+          "query": "official pricing",
+          "results": 1
+        },
+        {
+          "step": "search",
+          "query": "pricing limits",
+          "results": 1
+        },
+        {
+          "step": "search",
+          "query": "What are the synthetic plan limits? contrary evidence limitations conflicting findings",
+          "results": 1
+        }
+      ],
+      "limits": {
+        "search_calls": 3,
+        "model_calls": 3,
+        "max_output_tokens_per_call": 2200
+      },
+      "verification": "Exact passages checked by code; entailment and contradictions assessed by an AI reviewer. Human verification remains necessary.",
+      "execution_events": [
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "plan",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "synthesis",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "evidence_review",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "failed",
+          "final_outcome": "no result accepted; no retry",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence": [
+            {
+              "claim_id": "C1",
+              "requirement_ids": [
+                "R1"
+              ],
+              "source_ids": [
+                "S1"
+              ],
+              "status": "uncertain"
+            }
+          ],
+          "proposed_action": "render_report",
+          "applicable_approval": "local report only; no external writes",
+          "actual_tool_result": "failed",
+          "final_outcome": "failed"
+        }
+      ],
+      "unmapped_claim_ids": [],
+      "coverage_note": "Planner proposals and mapped findings only; full requirement coverage and satisfaction are not verified.",
+      "elapsed_seconds": 0.0,
+      "usage": [],
+      "cost": {
+        "usd": null,
+        "basis": "Not priced. Provider credits/tokens are usage, not an invoice.",
+        "max_reserved_tavily_credits": 3,
+        "max_nebius_output_tokens": 6600
+      }
+    },
+    "case": "review_interrupted",
+    "repetition": 1,
+    "execution_class": "simulation",
+    "simulated_http_attempts": 1,
+    "real_provider_calls": 0,
+    "local_elapsed_seconds": 0.008296,
+    "live_latency": null,
+    "actual_cost": null
+  },
+  {
+    "outcome": "structured_report",
+    "report": {
+      "schema_version": 1,
+      "run_id": "c9af2959-832b-4d99-8bb5-5c1ae25d7071",
+      "created_at": "2026-10-28T20:36:12.587309+00:00",
+      "question": "What are the synthetic plan limits?",
+      "model": "test-only",
+      "status": "failed",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal"
+        }
+      ],
+      "requirement_outcomes": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal",
+          "state": "not_established",
+          "claim_ids": [
+            "C1"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Pricing",
+          "url": "https://example.com/pricing",
+          "content": "The service offers a free plan with five reports per month.",
+          "sha256": "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406",
+          "retrieved_at": "2026-10-28T20:36:12.587767+00:00",
+          "published_at": null,
+          "content_type": "extracted_page",
+          "credibility": "Unrated: assess publisher, date, method and independence."
+        }
+      ],
+      "claims": [
+        {
+          "requirement_ids": [
+            "R1"
+          ],
+          "id": "C1",
+          "text": "There is a free plan capped at five reports per month.",
+          "status": "uncertain",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "The service offers a free plan with five reports per month.",
+              "span_start": 0,
+              "span_end": 59,
+              "match_count": 1,
+              "section_heading": null,
+              "table_header": [],
+              "context": "The service offers a free plan with five reports per month.",
+              "context_basis": "retained_source_text; extracted text may be truncated or incomplete"
+            }
+          ],
+          "reason": "Awaiting independent entailment check."
+        }
+      ],
+      "contradictions": [],
+      "warnings": [
+        "Provider request failed or returned invalid data. No automatic retry was made."
+      ],
+      "trace": [
+        {
+          "step": "search",
+          "query": "official pricing",
+          "results": 1
+        },
+        {
+          "step": "search",
+          "query": "pricing limits",
+          "results": 1
+        },
+        {
+          "step": "search",
+          "query": "What are the synthetic plan limits? contrary evidence limitations conflicting findings",
+          "results": 1
+        }
+      ],
+      "limits": {
+        "search_calls": 3,
+        "model_calls": 3,
+        "max_output_tokens_per_call": 2200
+      },
+      "verification": "Exact passages checked by code; entailment and contradictions assessed by an AI reviewer. Human verification remains necessary.",
+      "execution_events": [
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "plan",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "synthesis",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "evidence_review",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "failed",
+          "final_outcome": "no result accepted; no retry",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "requirement_id": "R1",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence": [
+            {
+              "claim_id": "C1",
+              "requirement_ids": [
+                "R1"
+              ],
+              "source_ids": [
+                "S1"
+              ],
+              "status": "uncertain"
+            }
+          ],
+          "proposed_action": "render_report",
+          "applicable_approval": "local report only; no external writes",
+          "actual_tool_result": "failed",
+          "final_outcome": "failed"
+        }
+      ],
+      "unmapped_claim_ids": [],
+      "coverage_note": "Planner proposals and mapped findings only; full requirement coverage and satisfaction are not verified.",
+      "elapsed_seconds": 0.0,
+      "usage": [],
+      "cost": {
+        "usd": null,
+        "basis": "Not priced. Provider credits/tokens are usage, not an invoice.",
+        "max_reserved_tavily_credits": 3,
+        "max_nebius_output_tokens": 6600
+      }
+    },
+    "case": "review_interrupted",
+    "repetition": 2,
+    "execution_class": "simulation",
+    "simulated_http_attempts": 1,
+    "real_provider_calls": 0,
+    "local_elapsed_seconds": 0.010252,
+    "live_latency": null,
+    "actual_cost": null
+  },
+  {
+    "outcome": "structured_report",
+    "report": {
+      "schema_version": 1,
+      "run_id": "3300b9b2-a833-4d42-a55b-258d6cc33441",
+      "created_at": "2026-10-28T20:36:12.595519+00:00",
+      "question": "What are the synthetic plan limits?",
+      "model": "test-only",
+      "status": "failed",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal"
+        }
+      ],
+      "requirement_outcomes": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal",
+          "state": "not_established",
+          "claim_ids": [
+            "C1"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Pricing",
+          "url": "https://example.com/pricing",
+          "content": "The service offers a free plan with five reports per month.",
+          "sha256": "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406",
+          "retrieved_at": "2026-10-28T20:36:12.595593+00:00",
+          "published_at": null,
+          "content_type": "extracted_page",
+          "credibility": "Unrated: assess publisher, date, method and independence."
+        }
+      ],
+      "claims": [
+        {
+          "requirement_ids": [
+            "R1"
+          ],
+          "id": "C1",
+          "text": "There is a free plan capped at five reports per month.",
+          "status": "uncertain",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "The service offers a free plan with five reports per month.",
+              "span_start": 0,
+              "span_end": 59,
+              "match_count": 1,
+              "section_heading": null,
+              "table_header": [],
+              "context": "The service offers a free plan with five reports per month.",
+              "context_basis": "retained_source_text; extracted text may be truncated or incomplete"
+            }
+          ],
+          "reason": "Awaiting independent entailment check."
+        }
+      ],
+      "contradictions": [],
+      "warnings": [
+        "Provider request failed or returned invalid data. No automatic retry was made."
+      ],
+      "trace": [
+        {
+          "step": "search",
+          "query": "official pricing",
+          "results": 1
+        },
+        {
+          "step": "search",
+          "query": "pricing limits",
+          "results": 1
+        },
+        {
+          "step": "search",
+          "query": "What are the synthetic plan limits? contrary evidence limitations conflicting findings",
+          "results": 1
+        }
+      ],
+      "limits": {
+        "search_calls": 3,
+        "model_calls": 3,
+        "max_output_tokens_per_call": 2200
+      },
+      "verification": "Exact passages checked by code; entailment and contradictions assessed by an AI reviewer. Human verification remains necessary.",
+      "execution_events": [
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "plan",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "synthesis",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "evidence_review",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "failed",
+          "final_outcome": "no result accepted; no retry",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "requirement_id": "R1",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence": [
+            {
+              "claim_id": "C1",
+              "requirement_ids": [
+                "R1"
+              ],
+              "source_ids": [
+                "S1"
+              ],
+              "status": "uncertain"
+            }
+          ],
+          "proposed_action": "render_report",
+          "applicable_approval": "local report only; no external writes",
+          "actual_tool_result": "failed",
+          "final_outcome": "failed"
+        }
+      ],
+      "unmapped_claim_ids": [],
+      "coverage_note": "Planner proposals and mapped findings only; full requirement coverage and satisfaction are not verified.",
+      "elapsed_seconds": 0.0,
+      "usage": [],
+      "cost": {
+        "usd": null,
+        "basis": "Not priced. Provider credits/tokens are usage, not an invoice.",
+        "max_reserved_tavily_credits": 3,
+        "max_nebius_output_tokens": 6600
+      }
+    },
+    "case": "review_interrupted",
+    "repetition": 3,
+    "execution_class": "simulation",
+    "simulated_http_attempts": 1,
+    "real_provider_calls": 0,
+    "local_elapsed_seconds": 0.006842,
+    "live_latency": null,
+    "actual_cost": null
+  },
+  {
+    "outcome": "structured_report",
+    "report": {
+      "schema_version": 1,
+      "run_id": "ee940bf4-79ba-427f-82be-6bb035a763af",
+      "created_at": "2026-10-28T20:36:12.604286+00:00",
+      "question": "What are the synthetic plan limits?",
+      "model": "test-only",
+      "status": "evidence_found",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal"
+        }
+      ],
+      "requirement_outcomes": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal",
+          "state": "supported_findings",
+          "claim_ids": [
+            "C1"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Pricing",
+          "url": "https://example.com/pricing",
+          "content": "The service offers a free plan with five reports per month.",
+          "sha256": "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406",
+          "retrieved_at": "2026-10-28T20:36:12.604359+00:00",
+          "published_at": null,
+          "content_type": "extracted_page",
+          "credibility": "Unrated: assess publisher, date, method and independence."
+        }
+      ],
+      "claims": [
+        {
+          "requirement_ids": [
+            "R1"
+          ],
+          "id": "C1",
+          "text": "There is a free plan capped at five reports per month.",
+          "status": "supported",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "The service offers a free plan with five reports per month.",
+              "span_start": 0,
+              "span_end": 59,
+              "match_count": 1,
+              "section_heading": null,
+              "table_header": [],
+              "context": "The service offers a free plan with five reports per month.",
+              "context_basis": "retained_source_text; extracted text may be truncated or incomplete"
+            }
+          ],
+          "reason": "The passage directly states the limit."
+        }
+      ],
+      "contradictions": [],
+      "warnings": [],
+      "trace": [
+        {
+          "step": "search",
+          "query": "official pricing",
+          "results": 1
+        },
+        {
+          "step": "search",
+          "query": "pricing limits",
+          "results": 1
+        },
+        {
+          "step": "search",
+          "query": "What are the synthetic plan limits? contrary evidence limitations conflicting findings",
+          "results": 1
+        },
+        {
+          "step": "review",
+          "supported": 1,
+          "claims": 1
+        }
+      ],
+      "limits": {
+        "search_calls": 3,
+        "model_calls": 3,
+        "max_output_tokens_per_call": 2200
+      },
+      "verification": "Exact passages checked by code; entailment and contradictions assessed by an AI reviewer. Human verification remains necessary.",
+      "execution_events": [
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "plan",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "synthesis",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "evidence_review",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence": [
+            {
+              "claim_id": "C1",
+              "requirement_ids": [
+                "R1"
+              ],
+              "source_ids": [
+                "S1"
+              ],
+              "status": "supported"
+            }
+          ],
+          "proposed_action": "render_report",
+          "applicable_approval": "local report only; no external writes",
+          "actual_tool_result": "evidence_found",
+          "final_outcome": "evidence_found"
+        }
+      ],
+      "unmapped_claim_ids": [],
+      "coverage_note": "Planner proposals and mapped findings only; full requirement coverage and satisfaction are not verified.",
+      "elapsed_seconds": 0.0,
+      "usage": [],
+      "cost": {
+        "usd": null,
+        "basis": "Not priced. Provider credits/tokens are usage, not an invoice.",
+        "max_reserved_tavily_credits": 3,
+        "max_nebius_output_tokens": 6600
+      }
+    },
+    "case": "normal",
+    "repetition": 1,
+    "execution_class": "simulation",
+    "simulated_http_attempts": 0,
+    "real_provider_calls": 0,
+    "local_elapsed_seconds": 0.007017,
+    "live_latency": null,
+    "actual_cost": null
+  },
+  {
+    "outcome": "structured_report",
+    "report": {
+      "schema_version": 1,
+      "run_id": "f42d5cb4-050a-4eb4-aeed-25ccc202ec1c",
+      "created_at": "2026-10-28T20:36:12.610920+00:00",
+      "question": "What are the synthetic plan limits?",
+      "model": "test-only",
+      "status": "evidence_found",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal"
+        }
+      ],
+      "requirement_outcomes": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal",
+          "state": "supported_findings",
+          "claim_ids": [
+            "C1"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Pricing",
+          "url": "https://example.com/pricing",
+          "content": "The service offers a free plan with five reports per month.",
+          "sha256": "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406",
+          "retrieved_at": "2026-10-28T20:36:12.611303+00:00",
+          "published_at": null,
+          "content_type": "extracted_page",
+          "credibility": "Unrated: assess publisher, date, method and independence."
+        }
+      ],
+      "claims": [
+        {
+          "requirement_ids": [
+            "R1"
+          ],
+          "id": "C1",
+          "text": "There is a free plan capped at five reports per month.",
+          "status": "supported",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "The service offers a free plan with five reports per month.",
+              "span_start": 0,
+              "span_end": 59,
+              "match_count": 1,
+              "section_heading": null,
+              "table_header": [],
+              "context": "The service offers a free plan with five reports per month.",
+              "context_basis": "retained_source_text; extracted text may be truncated or incomplete"
+            }
+          ],
+          "reason": "The passage directly states the limit."
+        }
+      ],
+      "contradictions": [],
+      "warnings": [],
+      "trace": [
+        {
+          "step": "search",
+          "query": "official pricing",
+          "results": 1
+        },
+        {
+          "step": "search",
+          "query": "pricing limits",
+          "results": 1
+        },
+        {
+          "step": "search",
+          "query": "What are the synthetic plan limits? contrary evidence limitations conflicting findings",
+          "results": 1
+        },
+        {
+          "step": "review",
+          "supported": 1,
+          "claims": 1
+        }
+      ],
+      "limits": {
+        "search_calls": 3,
+        "model_calls": 3,
+        "max_output_tokens_per_call": 2200
+      },
+      "verification": "Exact passages checked by code; entailment and contradictions assessed by an AI reviewer. Human verification remains necessary.",
+      "execution_events": [
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "plan",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "synthesis",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "evidence_review",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence": [
+            {
+              "claim_id": "C1",
+              "requirement_ids": [
+                "R1"
+              ],
+              "source_ids": [
+                "S1"
+              ],
+              "status": "supported"
+            }
+          ],
+          "proposed_action": "render_report",
+          "applicable_approval": "local report only; no external writes",
+          "actual_tool_result": "evidence_found",
+          "final_outcome": "evidence_found"
+        }
+      ],
+      "unmapped_claim_ids": [],
+      "coverage_note": "Planner proposals and mapped findings only; full requirement coverage and satisfaction are not verified.",
+      "elapsed_seconds": 0.0,
+      "usage": [],
+      "cost": {
+        "usd": null,
+        "basis": "Not priced. Provider credits/tokens are usage, not an invoice.",
+        "max_reserved_tavily_credits": 3,
+        "max_nebius_output_tokens": 6600
+      }
+    },
+    "case": "normal",
+    "repetition": 2,
+    "execution_class": "simulation",
+    "simulated_http_attempts": 0,
+    "real_provider_calls": 0,
+    "local_elapsed_seconds": 0.006231,
+    "live_latency": null,
+    "actual_cost": null
+  },
+  {
+    "outcome": "structured_report",
+    "report": {
+      "schema_version": 1,
+      "run_id": "cc3c304f-5b41-47af-928e-5fd52df66c29",
+      "created_at": "2026-10-28T20:36:12.620632+00:00",
+      "question": "What are the synthetic plan limits?",
+      "model": "test-only",
+      "status": "evidence_found",
+      "requirements": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal"
+        }
+      ],
+      "requirement_outcomes": [
+        {
+          "id": "R1",
+          "text": "Check monthly allowance",
+          "origin": "planner_proposal",
+          "state": "supported_findings",
+          "claim_ids": [
+            "C1"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Pricing",
+          "url": "https://example.com/pricing",
+          "content": "The service offers a free plan with five reports per month.",
+          "sha256": "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406",
+          "retrieved_at": "2026-10-28T20:36:12.620711+00:00",
+          "published_at": null,
+          "content_type": "extracted_page",
+          "credibility": "Unrated: assess publisher, date, method and independence."
+        }
+      ],
+      "claims": [
+        {
+          "requirement_ids": [
+            "R1"
+          ],
+          "id": "C1",
+          "text": "There is a free plan capped at five reports per month.",
+          "status": "supported",
+          "evidence": [
+            {
+              "source_id": "S1",
+              "quote": "The service offers a free plan with five reports per month.",
+              "span_start": 0,
+              "span_end": 59,
+              "match_count": 1,
+              "section_heading": null,
+              "table_header": [],
+              "context": "The service offers a free plan with five reports per month.",
+              "context_basis": "retained_source_text; extracted text may be truncated or incomplete"
+            }
+          ],
+          "reason": "The passage directly states the limit."
+        }
+      ],
+      "contradictions": [],
+      "warnings": [],
+      "trace": [
+        {
+          "step": "search",
+          "query": "official pricing",
+          "results": 1
+        },
+        {
+          "step": "search",
+          "query": "pricing limits",
+          "results": 1
+        },
+        {
+          "step": "search",
+          "query": "What are the synthetic plan limits? contrary evidence limitations conflicting findings",
+          "results": 1
+        },
+        {
+          "step": "review",
+          "supported": 1,
+          "claims": 1
+        }
+      ],
+      "limits": {
+        "search_calls": 3,
+        "model_calls": 3,
+        "max_output_tokens_per_call": 2200
+      },
+      "verification": "Exact passages checked by code; entailment and contradictions assessed by an AI reviewer. Human verification remains necessary.",
+      "execution_events": [
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "plan",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [],
+          "evidence_hashes": [],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "search",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "synthesis",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "requirement": "Answer the submitted research question with evidence",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence_hashes": [
+            "db83b1da5c23217e405cde13b2f181333381c23a0fb8525bf40ba62b39ec2406"
+          ],
+          "proposed_action": "evidence_review",
+          "applicable_approval": "research-only configuration gate; no external writes authorized",
+          "actual_tool_result": "returned",
+          "final_outcome": "received; downstream validation required",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "requirement_id": "R1",
+          "source_ids": [
+            "S1"
+          ],
+          "evidence": [
+            {
+              "claim_id": "C1",
+              "requirement_ids": [
+                "R1"
+              ],
+              "source_ids": [
+                "S1"
+              ],
+              "status": "supported"
+            }
+          ],
+          "proposed_action": "render_report",
+          "applicable_approval": "local report only; no external writes",
+          "actual_tool_result": "evidence_found",
+          "final_outcome": "evidence_found"
+        }
+      ],
+      "unmapped_claim_ids": [],
+      "coverage_note": "Planner proposals and mapped findings only; full requirement coverage and satisfaction are not verified.",
+      "elapsed_seconds": 0.0,
+      "usage": [],
+      "cost": {
+        "usd": null,
+        "basis": "Not priced. Provider credits/tokens are usage, not an invoice.",
+        "max_reserved_tavily_credits": 3,
+        "max_nebius_output_tokens": 6600
+      }
+    },
+    "case": "normal",
+    "repetition": 3,
+    "execution_class": "simulation",
+    "simulated_http_attempts": 0,
+    "real_provider_calls": 0,
+    "local_elapsed_seconds": 0.008299,
+    "live_latency": null,
+    "actual_cost": null
+  }
+]

@@ -1,0 +1,77 @@
+test_directly_documented_positive_finding_still_supported (test_absence_claims.AbsenceClaimTests.test_directly_documented_positive_finding_still_supported) ... ok
+test_documented_capability_restriction_is_not_documentation_absence (test_absence_claims.AbsenceClaimTests.test_documented_capability_restriction_is_not_documentation_absence) ... ok
+test_positive_reviewer_cannot_certify_missing_rules (test_absence_claims.AbsenceClaimTests.test_positive_reviewer_cannot_certify_missing_rules) ... 
+  test_positive_reviewer_cannot_certify_missing_rules (test_absence_claims.AbsenceClaimTests.test_positive_reviewer_cannot_certify_missing_rules) (text='The hackathon does not specify detailed submission requirements.') ... FAIL
+  test_positive_reviewer_cannot_certify_missing_rules (test_absence_claims.AbsenceClaimTests.test_positive_reviewer_cannot_certify_missing_rules) (text='The hackathon does not establish specific technical submission formats.') ... FAIL
+  test_positive_reviewer_cannot_certify_missing_rules (test_absence_claims.AbsenceClaimTests.test_positive_reviewer_cannot_certify_missing_rules) (text='The hackathon does not establish a submission deadline beyond its end date.') ... FAIL
+  test_positive_reviewer_cannot_certify_missing_rules (test_absence_claims.AbsenceClaimTests.test_positive_reviewer_cannot_certify_missing_rules) (text='The rules do not mention an age restriction.') ... FAIL
+  test_positive_reviewer_cannot_certify_missing_rules (test_absence_claims.AbsenceClaimTests.test_positive_reviewer_cannot_certify_missing_rules) (text='No submission requirements are specified.') ... FAIL
+test_uncertain_absence_cannot_create_fully_verified_report (test_absence_claims.AbsenceClaimTests.test_uncertain_absence_cannot_create_fully_verified_report) ... FAIL
+
+======================================================================
+FAIL: test_positive_reviewer_cannot_certify_missing_rules (test_absence_claims.AbsenceClaimTests.test_positive_reviewer_cannot_certify_missing_rules) (text='The hackathon does not specify detailed submission requirements.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_absence_claims.py", line 33, in test_positive_reviewer_cannot_certify_missing_rules
+    self.assertEqual(claim['status'], 'uncertain')
+AssertionError: 'supported' != 'uncertain'
+- supported
++ uncertain
+
+
+======================================================================
+FAIL: test_positive_reviewer_cannot_certify_missing_rules (test_absence_claims.AbsenceClaimTests.test_positive_reviewer_cannot_certify_missing_rules) (text='The hackathon does not establish specific technical submission formats.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_absence_claims.py", line 33, in test_positive_reviewer_cannot_certify_missing_rules
+    self.assertEqual(claim['status'], 'uncertain')
+AssertionError: 'supported' != 'uncertain'
+- supported
++ uncertain
+
+
+======================================================================
+FAIL: test_positive_reviewer_cannot_certify_missing_rules (test_absence_claims.AbsenceClaimTests.test_positive_reviewer_cannot_certify_missing_rules) (text='The hackathon does not establish a submission deadline beyond its end date.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_absence_claims.py", line 33, in test_positive_reviewer_cannot_certify_missing_rules
+    self.assertEqual(claim['status'], 'uncertain')
+AssertionError: 'supported' != 'uncertain'
+- supported
++ uncertain
+
+
+======================================================================
+FAIL: test_positive_reviewer_cannot_certify_missing_rules (test_absence_claims.AbsenceClaimTests.test_positive_reviewer_cannot_certify_missing_rules) (text='The rules do not mention an age restriction.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_absence_claims.py", line 33, in test_positive_reviewer_cannot_certify_missing_rules
+    self.assertEqual(claim['status'], 'uncertain')
+AssertionError: 'supported' != 'uncertain'
+- supported
++ uncertain
+
+
+======================================================================
+FAIL: test_positive_reviewer_cannot_certify_missing_rules (test_absence_claims.AbsenceClaimTests.test_positive_reviewer_cannot_certify_missing_rules) (text='No submission requirements are specified.')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_absence_claims.py", line 33, in test_positive_reviewer_cannot_certify_missing_rules
+    self.assertEqual(claim['status'], 'uncertain')
+AssertionError: 'supported' != 'uncertain'
+- supported
++ uncertain
+
+
+======================================================================
+FAIL: test_uncertain_absence_cannot_create_fully_verified_report (test_absence_claims.AbsenceClaimTests.test_uncertain_absence_cannot_create_fully_verified_report)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/repo_checkpoint/source/evidencepilot/tests/test_absence_claims.py", line 55, in test_uncertain_absence_cannot_create_fully_verified_report
+    self.assertNotEqual(report['status'], 'evidence_found')
+AssertionError: 'evidence_found' == 'evidence_found'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.007s
+
+FAILED (failures=6)

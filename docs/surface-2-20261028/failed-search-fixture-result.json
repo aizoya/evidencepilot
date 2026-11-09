@@ -1,0 +1,159 @@
+{
+  "classification": "synthetic provider fixture; real local pipeline execution",
+  "calls": [
+    "plan",
+    "search",
+    "search",
+    "search"
+  ],
+  "result": {
+    "schema_version": 1,
+    "run_id": "37b09b97-2633-4e26-98f4-5e7006b1af9d",
+    "created_at": "2026-10-28T21:35:32.981220+00:00",
+    "question": "What are the synthetic plan limits?",
+    "model": "test-only",
+    "status": "insufficient_evidence",
+    "requirements": [
+      {
+        "id": "R1",
+        "text": "Check monthly allowance",
+        "origin": "planner_proposal",
+        "user_spans": [
+          {
+            "start": 23,
+            "end": 34,
+            "quote": "plan limits"
+          }
+        ],
+        "text_link_status": "matched",
+        "interpretation_status": "not_reviewed",
+        "declared_span_count": 1,
+        "unresolved_span_count": 0,
+        "limitation": null
+      }
+    ],
+    "requirement_outcomes": [
+      {
+        "id": "R1",
+        "text": "Check monthly allowance",
+        "origin": "planner_proposal",
+        "user_spans": [
+          {
+            "start": 23,
+            "end": 34,
+            "quote": "plan limits"
+          }
+        ],
+        "text_link_status": "matched",
+        "interpretation_status": "not_reviewed",
+        "declared_span_count": 1,
+        "unresolved_span_count": 0,
+        "limitation": null,
+        "state": "not_established",
+        "claim_ids": []
+      }
+    ],
+    "sources": [],
+    "claims": [],
+    "contradictions": [],
+    "warnings": [
+      "Search failed.",
+      "Search failed.",
+      "Search failed.",
+      "No usable source material was retrieved. No factual answer is available."
+    ],
+    "trace": [
+      {
+        "step": "search",
+        "query": "official pricing",
+        "status": "failed"
+      },
+      {
+        "step": "search",
+        "query": "pricing limits",
+        "status": "failed"
+      },
+      {
+        "step": "search",
+        "query": "What are the synthetic plan limits? contrary evidence limitations conflicting findings",
+        "status": "failed"
+      }
+    ],
+    "limits": {
+      "search_calls": 3,
+      "model_calls": 3,
+      "max_output_tokens_per_call": 2200
+    },
+    "verification": "Exact passages checked by code; entailment and contradictions assessed by an AI reviewer. Human verification remains necessary.",
+    "execution_events": [
+      {
+        "requirement_id": "R1",
+        "requirement": "Answer the submitted research question with evidence",
+        "source_ids": [],
+        "evidence_hashes": [],
+        "proposed_action": "plan",
+        "applicable_approval": "research-only configuration gate; no external writes authorized",
+        "actual_tool_result": "returned",
+        "final_outcome": "received; downstream validation required",
+        "elapsed_seconds": 0.0
+      },
+      {
+        "requirement_id": "R1",
+        "requirement": "Answer the submitted research question with evidence",
+        "source_ids": [],
+        "evidence_hashes": [],
+        "proposed_action": "search",
+        "applicable_approval": "research-only configuration gate; no external writes authorized",
+        "actual_tool_result": "failed",
+        "final_outcome": "no result accepted; no retry",
+        "elapsed_seconds": 0.0
+      },
+      {
+        "requirement_id": "R1",
+        "requirement": "Answer the submitted research question with evidence",
+        "source_ids": [],
+        "evidence_hashes": [],
+        "proposed_action": "search",
+        "applicable_approval": "research-only configuration gate; no external writes authorized",
+        "actual_tool_result": "failed",
+        "final_outcome": "no result accepted; no retry",
+        "elapsed_seconds": 0.0
+      },
+      {
+        "requirement_id": "R1",
+        "requirement": "Answer the submitted research question with evidence",
+        "source_ids": [],
+        "evidence_hashes": [],
+        "proposed_action": "search",
+        "applicable_approval": "research-only configuration gate; no external writes authorized",
+        "actual_tool_result": "failed",
+        "final_outcome": "no result accepted; no retry",
+        "elapsed_seconds": 0.0
+      },
+      {
+        "requirement_id": "R1",
+        "source_ids": [],
+        "evidence": [],
+        "proposed_action": "render_report",
+        "applicable_approval": "local report only; no external writes",
+        "actual_tool_result": "insufficient_evidence",
+        "final_outcome": "insufficient_evidence"
+      }
+    ],
+    "requirement_limit": 5,
+    "omitted_requirement_count": 0,
+    "requirement_limit_exceeded": false,
+    "requirement_proposals_unusable": false,
+    "unmapped_claim_ids": [],
+    "coverage_assurance": "not_verified",
+    "coverage_note": "Planner proposals and mapped findings only; full requirement coverage and satisfaction are not verified.",
+    "elapsed_seconds": 0.0,
+    "usage": [],
+    "cost": {
+      "usd": null,
+      "basis": "Not priced. Provider credits/tokens are usage, not an invoice.",
+      "max_reserved_tavily_credits": 3,
+      "max_nebius_output_tokens": 6600
+    }
+  }
+}

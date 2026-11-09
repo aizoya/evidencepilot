@@ -1,0 +1,76 @@
+{
+  "kind": "offline deterministic re-review of saved live artifact; no provider calls",
+  "original_run_id": "198d00d0-87fb-4d8c-8f33-3c7a9d1f27a1",
+  "original_file_sha256": "b178ce3f1c432d3c49d411d3ff87aaeef7989d9b8dc2ab479ddb9b90fcb683e3",
+  "original_elapsed_seconds": 25.57,
+  "original_usage": [
+    {
+      "provider": "nebius",
+      "purpose": "plan",
+      "prompt_tokens": 191,
+      "completion_tokens": 185
+    },
+    {
+      "provider": "tavily",
+      "credits": 1,
+      "reserved_credits": 1
+    },
+    {
+      "provider": "tavily",
+      "credits": 1,
+      "reserved_credits": 1
+    },
+    {
+      "provider": "tavily",
+      "credits": 1,
+      "reserved_credits": 1
+    },
+    {
+      "provider": "nebius",
+      "purpose": "synthesis",
+      "prompt_tokens": 11864,
+      "completion_tokens": 1365
+    },
+    {
+      "provider": "nebius",
+      "purpose": "evidence_review",
+      "prompt_tokens": 18478,
+      "completion_tokens": 445
+    }
+  ],
+  "original_cost": {
+    "usd": null,
+    "basis": "Not priced. Provider credits/tokens are usage, not an invoice.",
+    "max_reserved_tavily_credits": 3,
+    "max_nebius_output_tokens": 6600
+  },
+  "changed_claims": [
+    {
+      "id": "C4",
+      "before": "supported",
+      "after": "uncertain",
+      "reason": "Documentation absence requires human scope review; limited retrieved passages cannot certify missing rules or information."
+    },
+    {
+      "id": "C5",
+      "before": "supported",
+      "after": "uncertain",
+      "reason": "Documentation absence requires human scope review; limited retrieved passages cannot certify missing rules or information."
+    },
+    {
+      "id": "C6",
+      "before": "supported",
+      "after": "uncertain",
+      "reason": "Documentation absence requires human scope review; limited retrieved passages cannot certify missing rules or information."
+    },
+    {
+      "id": "C8",
+      "before": "supported",
+      "after": "uncertain",
+      "reason": "Documentation absence requires human scope review; limited retrieved passages cannot certify missing rules or information."
+    }
+  ],
+  "remaining_known_failure": "C3 still calls the event date range a submission period; this patch does not correct it.",
+  "new_external_calls": 0,
+  "deployment": "none"
+}

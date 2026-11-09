@@ -1,0 +1,19 @@
+--- ped-baseline/core.py
++++ transport-patch/core.py
+@@ -13,6 +13,7 @@
+ from urllib.parse import urlsplit, urlunsplit
+ from urllib.request import Request, build_opener, HTTPRedirectHandler
+ from urllib.error import URLError, HTTPError
++from http.client import HTTPException
+ 
+ 
+ class ResearchError(Exception):
+@@ -64,7 +65,7 @@
+         if not isinstance(result, dict):
+             raise ValueError()
+         return result
+-    except (HTTPError, URLError, TimeoutError, socket.timeout, ValueError):
++    except (HTTPError, URLError, TimeoutError, socket.timeout, ValueError, HTTPException, ConnectionError):
+         # Never expose response bodies, credentials, request content or exception repr.
+         raise ResearchError('Provider request failed or returned invalid data. No automatic retry was made.') from None
+ 

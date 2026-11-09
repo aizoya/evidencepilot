@@ -1,0 +1,64 @@
+{
+  "classification": "audit of previously uploaded third live run; no new execution",
+  "run_id": "13390016-ff9d-48c9-bfec-82e99529bcd6",
+  "original_file_sha256": "2e37e5d2c5b1096ffc41053f2e12300241bff86e769ade3257fb3ac02611b3b7",
+  "status": "partial",
+  "elapsed_seconds": 13.39,
+  "usage": [
+    {
+      "provider": "nebius",
+      "purpose": "plan",
+      "prompt_tokens": 191,
+      "completion_tokens": 184
+    },
+    {
+      "provider": "tavily",
+      "credits": 1,
+      "reserved_credits": 1
+    },
+    {
+      "provider": "tavily",
+      "credits": 1,
+      "reserved_credits": 1
+    },
+    {
+      "provider": "tavily",
+      "purpose": "extract",
+      "credits": 0,
+      "reserved_credits": 1
+    },
+    {
+      "provider": "nebius",
+      "purpose": "synthesis",
+      "prompt_tokens": 8525,
+      "completion_tokens": 372
+    },
+    {
+      "provider": "nebius",
+      "purpose": "evidence_review",
+      "prompt_tokens": 10713,
+      "completion_tokens": 242
+    }
+  ],
+  "cost": {
+    "usd": null,
+    "basis": "Not priced. Provider credits/tokens are usage, not an invoice.",
+    "max_reserved_tavily_credits": 3,
+    "max_nebius_output_tokens": 6600
+  },
+  "checked_source_hashes": 7,
+  "checked_quote_offsets": 3,
+  "warnings": [
+    "Linked-page extraction failed or returned unusable content. No retry was made.",
+    "The linked website was targeted but no usable extracted page from its domain was retrieved. Governing-source coverage remains unverified."
+  ],
+  "required_provider_names_present_in_retained_S1": true,
+  "C4_status": "unsupported",
+  "C4_retained_evidence_count": 0,
+  "unknowns": [
+    "Exact extraction failure category is not retained in this old export",
+    "Exact rejected C4 evidence or source identifier is not retained",
+    "No basis to conclude the page is permanently inaccessible or the model requires replacement"
+  ],
+  "new_provider_calls": 0
+}

@@ -1,0 +1,39 @@
+test_failed_search_card_text_and_bound_export (test_surface_parity.SurfaceParityTests.test_failed_search_card_text_and_bound_export) ... FAIL
+
+======================================================================
+FAIL: test_failed_search_card_text_and_bound_export (test_surface_parity.SurfaceParityTests.test_failed_search_card_text_and_bound_export)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/ped_recovery/source/evidencepilot/tests/test_surface_parity.py", line 26, in test_failed_search_card_text_and_bound_export
+    self.assertEqual(result.returncode, 0, result.stdout+result.stderr)
+AssertionError: 1 != 0 : node:internal/assert/utils:77
+    throw err;
+    ^
+
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert.ok(!nodes.get('trace').textContent.includes('send_email'))
+
+    at Object.<anonymous> (/workspace/scratch/facb523d7379/ped_recovery/source/evidencepilot/tests/surface_parity.cjs:56:8)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.22.1
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.138s
+
+FAILED (failures=1)

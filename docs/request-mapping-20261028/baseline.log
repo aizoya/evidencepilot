@@ -1,0 +1,104 @@
+test_core (unittest.loader._FailedTest.test_core) ... ERROR
+test_execution_gaps (unittest.loader._FailedTest.test_execution_gaps) ... ERROR
+test_passage_context (unittest.loader._FailedTest.test_passage_context) ... ERROR
+test_report_completeness (unittest.loader._FailedTest.test_report_completeness) ... ERROR
+test_requirements (unittest.loader._FailedTest.test_requirements) ... ERROR
+test_missing_not_counted_as_correct_abstention (test_reviewer_scoring.ScoringTests.test_missing_not_counted_as_correct_abstention) ... ok
+test_unknown_or_duplicate_ids_rejected (test_reviewer_scoring.ScoringTests.test_unknown_or_duplicate_ids_rejected) ... ok
+test_wrong_approval_and_false_rejection (test_reviewer_scoring.ScoringTests.test_wrong_approval_and_false_rejection) ... ok
+test_transport_interruption (unittest.loader._FailedTest.test_transport_interruption) ... ERROR
+
+======================================================================
+ERROR: test_core (unittest.loader._FailedTest.test_core)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_core
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/facb523d7379/ped_recovery/source/evidencepilot/tests/test_core.py", line 8, in <module>
+    from evidencepilot.core import Budget, ResearchError, apply_review, research, safe_url, sources_from, validate_claims
+ModuleNotFoundError: No module named 'evidencepilot'
+
+
+======================================================================
+ERROR: test_execution_gaps (unittest.loader._FailedTest.test_execution_gaps)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_execution_gaps
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/facb523d7379/ped_recovery/source/evidencepilot/tests/test_execution_gaps.py", line 6, in <module>
+    from evidencepilot.core import Providers, ResearchError, Budget, research, validate_claims, apply_review
+ModuleNotFoundError: No module named 'evidencepilot'
+
+
+======================================================================
+ERROR: test_passage_context (unittest.loader._FailedTest.test_passage_context)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_passage_context
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/facb523d7379/ped_recovery/source/evidencepilot/tests/test_passage_context.py", line 3, in <module>
+    from evidencepilot.core import passage_context, validate_claims, apply_review
+ModuleNotFoundError: No module named 'evidencepilot'
+
+
+======================================================================
+ERROR: test_report_completeness (unittest.loader._FailedTest.test_report_completeness)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_report_completeness
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/facb523d7379/ped_recovery/source/evidencepilot/tests/test_report_completeness.py", line 4, in <module>
+    from evidencepilot.core import research,Budget
+ModuleNotFoundError: No module named 'evidencepilot'
+
+
+======================================================================
+ERROR: test_requirements (unittest.loader._FailedTest.test_requirements)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_requirements
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/facb523d7379/ped_recovery/source/evidencepilot/tests/test_requirements.py", line 4, in <module>
+    from evidencepilot.core import requirements_from, requirement_outcomes, validate_claims, research, Budget
+ModuleNotFoundError: No module named 'evidencepilot'
+
+
+======================================================================
+ERROR: test_transport_interruption (unittest.loader._FailedTest.test_transport_interruption)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_transport_interruption
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/facb523d7379/ped_recovery/source/evidencepilot/tests/test_transport_interruption.py", line 6, in <module>
+    from evidencepilot.core import post_json,Providers,research,Budget,ResearchError
+ModuleNotFoundError: No module named 'evidencepilot'
+
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.001s
+
+FAILED (errors=6)

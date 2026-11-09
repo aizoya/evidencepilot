@@ -1,0 +1,84 @@
+test_bounded_success_is_test_fixture_only (test_core.ResearchTests.test_bounded_success_is_test_fixture_only) ... ERROR
+test_conflict_requires_exact_passages_and_distinct_sources (test_core.ResearchTests.test_conflict_requires_exact_passages_and_distinct_sources) ... ok
+test_daily_quota_is_durable_and_failed_run_reserved (test_core.ResearchTests.test_daily_quota_is_durable_and_failed_run_reserved) ... ok
+test_empty_has_no_answer_and_no_synthesis (test_core.ResearchTests.test_empty_has_no_answer_and_no_synthesis) ... ok
+test_exact_quote_does_not_force_entailment (test_core.ResearchTests.test_exact_quote_does_not_force_entailment) ... ok
+test_invalid_question_spends_no_quota (test_core.ResearchTests.test_invalid_question_spends_no_quota) ... ok
+test_invented_quote_cannot_pass (test_core.ResearchTests.test_invented_quote_cannot_pass) ... ok
+test_missing_and_duplicate_review_fail_closed (test_core.ResearchTests.test_missing_and_duplicate_review_fail_closed) ... ok
+test_review_failure_never_promotes_claims (test_core.ResearchTests.test_review_failure_never_promotes_claims) ... ok
+test_search_failures_are_visible (test_core.ResearchTests.test_search_failures_are_visible) ... ok
+test_source_injection_is_only_data (test_core.ResearchTests.test_source_injection_is_only_data) ... ok
+test_unsafe_source_urls_and_content_duplicates (test_core.ResearchTests.test_unsafe_source_urls_and_content_duplicates) ... ok
+test_citation_query_identity_preserved (test_core.ReviewRegressionTests.test_citation_query_identity_preserved) ... ok
+test_contradicted_requires_opposing_passages (test_core.ReviewRegressionTests.test_contradicted_requires_opposing_passages) ... ok
+test_malformed_source_identifiers_fail_closed (test_core.ReviewRegressionTests.test_malformed_source_identifiers_fail_closed) ... ok
+test_non_ascii_auth_is_denied (test_core.ReviewRegressionTests.test_non_ascii_auth_is_denied) ... ok
+test_short_token_not_ready (test_core.ReviewRegressionTests.test_short_token_not_ready) ... ok
+test_access_denied_without_token (test_core.WebTests.test_access_denied_without_token) ... ok
+test_cross_origin_denied (test_core.WebTests.test_cross_origin_denied) ... ok
+test_disabled_gate (test_core.WebTests.test_disabled_gate) ... ok
+test_no_secrets_in_health (test_core.WebTests.test_no_secrets_in_health) ... ok
+test_static_and_no_path_traversal (test_core.WebTests.test_static_and_no_path_traversal) ... ok
+test_dated_evidence_rejection_respected (test_execution_gaps.ExecutionGapTests.test_dated_evidence_rejection_respected) ... ok
+test_excerpt_alone_cannot_be_promoted (test_execution_gaps.ExecutionGapTests.test_excerpt_alone_cannot_be_promoted) ... ERROR
+test_failed_tool_result_preserved (test_execution_gaps.ExecutionGapTests.test_failed_tool_result_preserved) ... ok
+test_hostile_model_request_has_no_action_dispatch (test_execution_gaps.ExecutionGapTests.test_hostile_model_request_has_no_action_dispatch) ... ok
+test_trace_has_results_and_no_question_or_source_payload (test_execution_gaps.ExecutionGapTests.test_trace_has_results_and_no_question_or_source_payload) ... ERROR
+test_unauthorized_model_tool_call_rejected (test_execution_gaps.ExecutionGapTests.test_unauthorized_model_tool_call_rejected) ... ok
+test_unexplained_support_is_uncertain (test_execution_gaps.ExecutionGapTests.test_unexplained_support_is_uncertain) ... ok
+
+======================================================================
+ERROR: test_bounded_success_is_test_fixture_only (test_core.ResearchTests.test_bounded_success_is_test_fixture_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/recovered/source/evidencepilot/tests/test_core.py", line 41, in test_bounded_success_is_test_fixture_only
+    r = research('What are the current plan limits?', p, Budget(self.path, 1))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/facb523d7379/recovered/source/evidencepilot/evidencepilot/core.py", line 303, in research
+    report['contradictions'] = apply_review(report['claims'], review, report['sources'])
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/facb523d7379/recovered/source/evidencepilot/evidencepilot/core.py", line 194, in apply_review
+    if status == 'supported' and (not text(row.get('reason'), 500).strip() or any(lookup[e['source_id']].get('content_type') == 'search_excerpt' for e in claim['evidence'])):
+                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/facb523d7379/recovered/source/evidencepilot/evidencepilot/core.py", line 194, in <genexpr>
+    if status == 'supported' and (not text(row.get('reason'), 500).strip() or any(lookup[e['source_id']].get('content_type') == 'search_excerpt' for e in claim['evidence'])):
+                                                                                  ^^^^^^
+NameError: cannot access free variable 'lookup' where it is not associated with a value in enclosing scope
+
+======================================================================
+ERROR: test_excerpt_alone_cannot_be_promoted (test_execution_gaps.ExecutionGapTests.test_excerpt_alone_cannot_be_promoted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/recovered/source/evidencepilot/tests/test_execution_gaps.py", line 18, in test_excerpt_alone_cannot_be_promoted
+    apply_review(claims,{'reviews':[{'claim_id':'C1','status':'supported','reason':'Matches'}]},sources)
+  File "/workspace/scratch/facb523d7379/recovered/source/evidencepilot/evidencepilot/core.py", line 194, in apply_review
+    if status == 'supported' and (not text(row.get('reason'), 500).strip() or any(lookup[e['source_id']].get('content_type') == 'search_excerpt' for e in claim['evidence'])):
+                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/facb523d7379/recovered/source/evidencepilot/evidencepilot/core.py", line 194, in <genexpr>
+    if status == 'supported' and (not text(row.get('reason'), 500).strip() or any(lookup[e['source_id']].get('content_type') == 'search_excerpt' for e in claim['evidence'])):
+                                                                                  ^^^^^^
+NameError: cannot access free variable 'lookup' where it is not associated with a value in enclosing scope
+
+======================================================================
+ERROR: test_trace_has_results_and_no_question_or_source_payload (test_execution_gaps.ExecutionGapTests.test_trace_has_results_and_no_question_or_source_payload)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/recovered/source/evidencepilot/tests/test_execution_gaps.py", line 31, in test_trace_has_results_and_no_question_or_source_payload
+    r=research('Synthetic confidential question 938?',FakeProvider(),Budget(d+'/q.db'))
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/facb523d7379/recovered/source/evidencepilot/evidencepilot/core.py", line 303, in research
+    report['contradictions'] = apply_review(report['claims'], review, report['sources'])
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/facb523d7379/recovered/source/evidencepilot/evidencepilot/core.py", line 194, in apply_review
+    if status == 'supported' and (not text(row.get('reason'), 500).strip() or any(lookup[e['source_id']].get('content_type') == 'search_excerpt' for e in claim['evidence'])):
+                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/facb523d7379/recovered/source/evidencepilot/evidencepilot/core.py", line 194, in <genexpr>
+    if status == 'supported' and (not text(row.get('reason'), 500).strip() or any(lookup[e['source_id']].get('content_type') == 'search_excerpt' for e in claim['evidence'])):
+                                                                                  ^^^^^^
+NameError: cannot access free variable 'lookup' where it is not associated with a value in enclosing scope
+
+----------------------------------------------------------------------
+Ran 29 tests in 0.124s
+
+FAILED (errors=3)

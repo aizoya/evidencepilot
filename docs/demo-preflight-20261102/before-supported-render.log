@@ -1,0 +1,38 @@
+test_failed_search_card_text_and_bound_export (test_surface_parity.SurfaceParityTests.test_failed_search_card_text_and_bound_export) ... ok
+test_supported_fixture_quotes_links_and_export (test_surface_parity.SurfaceParityTests.test_supported_fixture_quotes_links_and_export) ... FAIL
+
+======================================================================
+FAIL: test_supported_fixture_quotes_links_and_export (test_surface_parity.SurfaceParityTests.test_supported_fixture_quotes_links_and_export)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/facb523d7379/evidencepilot/tests/test_surface_parity.py", line 48, in test_supported_fixture_quotes_links_and_export
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : node:internal/assert/utils:77
+    throw err;
+    ^
+
+AssertionError [ERR_ASSERTION]: Card missing: Search failed — no verified answer
+    at Object.<anonymous> (/workspace/scratch/facb523d7379/evidencepilot/tests/surface_parity.cjs:30:10)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.22.1
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.129s
+
+FAILED (failures=1)
+SURFACE-2: parity, safe trace, no answer, same next step, mode switching, stale-record/version rejection, redaction, and zero external actions passed (DOM double).

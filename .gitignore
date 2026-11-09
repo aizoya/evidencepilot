@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+*.sqlite3*
+__pycache__/
+*.pyc
+.venv/
+evidence/private/

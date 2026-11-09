@@ -1,0 +1,26 @@
+{
+  "classification": "offline deterministic recheck, not new live research",
+  "original_run_id": "198d00d0-87fb-4d8c-8f33-3c7a9d1f27a1",
+  "original_sha256": "b178ce3f1c432d3c49d411d3ff87aaeef7989d9b8dc2ab479ddb9b90fcb683e3",
+  "C3_before_patch": "supported (also retained as remaining failure in prior audit)",
+  "C3_after_patch": "uncertain",
+  "C3_reason": "A submission timing claim needs an explicitly scoped submission passage; event dates alone do not establish a submission period or deadline.",
+  "all_claim_statuses_after_both_guards": {
+    "C1": "supported",
+    "C2": "supported",
+    "C3": "uncertain",
+    "C4": "uncertain",
+    "C5": "uncertain",
+    "C6": "uncertain",
+    "C7": "uncertain",
+    "C8": "uncertain"
+  },
+  "new_provider_calls": 0,
+  "dollar_cost": "not measured; no live provider requests",
+  "limitations": [
+    "No measured live-model improvement",
+    "Lexical necessary-condition guard, not semantic entailment",
+    "Retrieval still missed governing rules page",
+    "No independent holdout evaluation"
+  ]
+}

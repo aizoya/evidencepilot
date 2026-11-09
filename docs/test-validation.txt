@@ -1,0 +1,27 @@
+test_bounded_success_is_test_fixture_only (test_core.ResearchTests.test_bounded_success_is_test_fixture_only) ... ok
+test_conflict_requires_exact_passages_and_distinct_sources (test_core.ResearchTests.test_conflict_requires_exact_passages_and_distinct_sources) ... ok
+test_daily_quota_is_durable_and_failed_run_reserved (test_core.ResearchTests.test_daily_quota_is_durable_and_failed_run_reserved) ... ok
+test_empty_has_no_answer_and_no_synthesis (test_core.ResearchTests.test_empty_has_no_answer_and_no_synthesis) ... ok
+test_exact_quote_does_not_force_entailment (test_core.ResearchTests.test_exact_quote_does_not_force_entailment) ... ok
+test_invalid_question_spends_no_quota (test_core.ResearchTests.test_invalid_question_spends_no_quota) ... ok
+test_invented_quote_cannot_pass (test_core.ResearchTests.test_invented_quote_cannot_pass) ... ok
+test_missing_and_duplicate_review_fail_closed (test_core.ResearchTests.test_missing_and_duplicate_review_fail_closed) ... ok
+test_review_failure_never_promotes_claims (test_core.ResearchTests.test_review_failure_never_promotes_claims) ... ok
+test_search_failures_are_visible (test_core.ResearchTests.test_search_failures_are_visible) ... ok
+test_source_injection_is_only_data (test_core.ResearchTests.test_source_injection_is_only_data) ... ok
+test_unsafe_source_urls_and_content_duplicates (test_core.ResearchTests.test_unsafe_source_urls_and_content_duplicates) ... ok
+test_citation_query_identity_preserved (test_core.ReviewRegressionTests.test_citation_query_identity_preserved) ... ok
+test_contradicted_requires_opposing_passages (test_core.ReviewRegressionTests.test_contradicted_requires_opposing_passages) ... ok
+test_malformed_source_identifiers_fail_closed (test_core.ReviewRegressionTests.test_malformed_source_identifiers_fail_closed) ... ok
+test_non_ascii_auth_is_denied (test_core.ReviewRegressionTests.test_non_ascii_auth_is_denied) ... ok
+test_short_token_not_ready (test_core.ReviewRegressionTests.test_short_token_not_ready) ... ok
+test_access_denied_without_token (test_core.WebTests.test_access_denied_without_token) ... ok
+test_cross_origin_denied (test_core.WebTests.test_cross_origin_denied) ... ok
+test_disabled_gate (test_core.WebTests.test_disabled_gate) ... ok
+test_no_secrets_in_health (test_core.WebTests.test_no_secrets_in_health) ... ok
+test_static_and_no_path_traversal (test_core.WebTests.test_static_and_no_path_traversal) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.062s
+
+OK
