@@ -2,11 +2,17 @@
 
 EvidencePilot researches business questions through Nebius Token Factory and Tavily, then presents claim-level passages, uncertainty, conflicting evidence and an inspectable research trace.
 
-**Status: locally tested prototype. Real provider execution, mobile browser QA, public repository, container security checks, deployment, demo recording and competition submission are not verified.** Unit fixtures never serve application answers. No default model or credentials are assumed.
+**Status: research prototype.** [Browse the exact source, tests, and setup](https://github.com/aizoya/evidencepilot/tree/efe375b79411273571062604e587f5b4afd5ab0e). The default branch contains this overview; use the pinned source above to run the app.
+
+**November 20, 2026 (Pacific) live test:** EvidencePilot made three Tavily searches and three Nebius Token Factory calls on the pinned source. The result was **Partial**. It found documentation for hard domain filtering but did not adequately cite the five-result limit or support its wildcard claim. The run researched documented behavior; it did not test the domain filter itself. All 96 offline tests passed separately.
+
+**Demo:** [Watch the archival recap](https://youtu.be/Q9jBLcrc28Q) of three earlier partial runs. It does not show the November 20 run. A complete live success and ODSC starter-template provenance remain unverified; no contest submission is claimed.
+
+Unit fixtures never serve application answers. No default model or credentials are assumed.
 
 ## Run locally
 
-Requires Python 3.12+. The local app and tests use only the standard library.
+Start from the pinned source link above, not the default branch. Requires Python 3.12+. The local app and tests use only the standard library.
 
 ```bash
 python3 -m unittest discover -s tests -v
@@ -60,7 +66,7 @@ Verify `/health`, missing/invalid access, origin checks, successful real researc
 
 ## Competition
 
-Official dedicated page: https://hackathon.odsc.ai/ (checked October 27, 2026 PT). Kickoff October 28; submissions close November 20, 2026. Exact cutoff time/timezone and final submission URL were not established. Older ODSC pages conflict with the dedicated page; recheck organizer announcements before submission.
+Official dedicated page: https://hackathon.odsc.ai/ (checked October 27, 2026 PT). Kickoff October 28; submissions close November 20, 2026. See the [official submission form](https://hackathon.odsc.ai/submit) for the stated 8:59 p.m. Pacific cutoff and repository instructions. Older ODSC pages conflict with the dedicated page; recheck organizer announcements before submission.
 
 Required: real Nebius Token Factory inference, Tavily live search, public repository with README, short demo. Judging weights: sourced/verifiable 30%, end-to-end 25%, usefulness 20%, agent design 15%, integrations 10%. These are planning inputs, not a claim of eligibility, registration or submission. See `docs/EXECUTION.md` for the evidence and release gates.
 
